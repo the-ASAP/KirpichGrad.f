@@ -1,0 +1,17 @@
+:root {
+    --gen: #303030;
+    --el: #C04941;
+    --text: #BDBDBD;
+    --font: Helvetica-Neue;
+    --subText: #797979;
+    --border-color: #E0E0E0;
+    --bg-color: #F6F6F6;
+}
+
+$gen: var(--gen);
+$el: var(--el);
+$text: var(--text);
+$sub: var(--subText);
+$font: var(--font);
+$border: var(--border-color);
+$bgc: var(--bg-color);
