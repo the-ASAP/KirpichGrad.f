@@ -266,6 +266,17 @@ textarea::placeholder {
   transition: opacity .3s;
 }
 
+.revealator {
+  opacity: 0;
+  transform: translateY(4rem);
+}
+
+.revealator-within {
+  animation: slideTo;
+  animation-duration: 1.5s;
+  animation-fill-mode: forwards;
+}
+
 .slideDown {
   transform: translateY(-4rem);
 }
@@ -739,6 +750,13 @@ textarea::placeholder {
 
 .mainMenu {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #E5E5E5;
+  z-index: 3;
+  height: 100%;
   transform: translateX(-100%);
   transition: transform .8s;
 }
@@ -1002,6 +1020,7 @@ textarea::placeholder {
   text-align: left;
   display: block;
   font-size: 0.7778rem;
+  animation-duration: .3s;
 }
 
 .showroom__sliderOption-name {

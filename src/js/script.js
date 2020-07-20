@@ -17,10 +17,16 @@ function stopScroll(item) {
 function freeScroll(item) {
     $(item).attr("style", '');
 }
-function menuOpen(trigger, modal) {
-    $(trigger).on('click', function () {
+function mainMenu(trigger, menu) {
+    $(trigger).on('click',  () => {
         stopScroll('body');
-        $(modal).fadeIn(300).addClass('visible')
+        $(menu).fadeIn().addClass('visible');
+    });
+    $('.mainMenu__close').on('click', () => {
+        $(menu).removeClass('visible')
+        setTimeout(()=>{
+            $(menu).hide()
+        },800)
     })
 }
 function modalOpen(trigger, modal) {
@@ -52,7 +58,8 @@ function escClosing(modal) {
 }
 
 function owls() {
-    $('.showroom__slider').owlCarousel({
+    const showroom = $('.showroom__slider')
+    showroom.owlCarousel({
         nav: true,
         navContainer: ('.showroom__sliderNav'),
         navText: ['<svg class="showroom__sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
@@ -65,7 +72,14 @@ function owls() {
         smartSpeed: 1000,
         lazyLoad: true,
         margin: 10
-    });
+    })
+    .on('change.owl.carousel', (e) =>{
+        let item = $('.showroom__slider').find('.owl-item').eq(e.property.value).find('img');
+        $('.showroom__sliderInfo').hide().fadeIn(500)
+        $('.showroom__sliderOption-name').text(item.attr('data-title'));
+        $('.showroom__sliderOption-size').text(item.attr('data-size'));
+        $('.showroom__sliderOption-price').text(item.attr('data-price'))
+    })
     var goodsItem = $('.goods__gallerySlider');
     goodsItem.each(function () {
         $(this).owlCarousel({
@@ -294,7 +308,7 @@ function animationInit(){
 }
 
 $().ready(function () {
-    menuOpen('.aside__toggle', '.mainMenu');
+    mainMenu('.aside__toggle', '.mainMenu');
     modalClose('.modal__close', '.modal');
     escClosing('.modal');
     owls();
