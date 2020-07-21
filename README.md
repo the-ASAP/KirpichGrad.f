@@ -1,1 +1,1 @@
-https://github.com/the-ASAP/KirpichGrad.f/invitations
+https://the-asap.github.io/KirpichGrad.f/
