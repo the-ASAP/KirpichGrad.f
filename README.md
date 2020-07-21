@@ -1,1 +1,1 @@
-https://space1nvader.github.io/KirpichGrad.f/.
+https://github.com/the-ASAP/KirpichGrad.f/invitations
