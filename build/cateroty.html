@@ -12,11 +12,13 @@
 	<link rel="stylesheet" href="vendors/owl.carousel.min.css" type="text/css">
 	<link rel="stylesheet" href="vendors/owl.theme.default.css" type="text/css">
 	<link rel="stylesheet" href="css/main.css" type="text/css">
+	<link rel="stylesheet" href="vendors/media.scss" type="text/css">
 	<link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<div class="preloader"></div>
+	<!-- TYPE YOUR HTML HERE -->
 	<aside class="aside">
 		<a href="" class="aside__logo logo">
 			<img class='logo__img' src="img/logo.png" alt="">
@@ -35,7 +37,8 @@
 			<svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
 					d="M9.6398 18.4798C4.7438 18.4798 0.799805 14.5358 0.799805 9.6398C0.799805 4.7438 4.7438 0.799805 9.6398 0.799805C14.5358 0.799805 18.4798 4.7438 18.4798 9.6398C18.4798 14.5358 14.5358 18.4798 9.6398 18.4798ZM9.6398 2.1598C5.4918 2.1598 2.1598 5.4918 2.1598 9.6398C2.1598 13.7878 5.4918 17.1198 9.6398 17.1198C13.7878 17.1198 17.1198 13.7878 17.1198 9.6398C17.1198 5.4918 13.7878 2.1598 9.6398 2.1598Z"
-					fill="#797979" />
+					fill
+					="#797979" />
 				<path d="M16.2237 15.2617L22.3301 21.3681L21.3686 22.3296L15.2622 16.2232L16.2237 15.2617Z"
 					fill="#797979" />
 			</svg>
@@ -123,251 +126,33 @@
 		</nav>
 		<section class="catalog">
 			<div class="wrap">
-				<h2 class="catalog__title revealator revealator-once">Каталог</h2>
+				<h2 class="catalog__title">Каталог</h2>
 				<div class="catalog__box flexbox">
-
+			
 					<div class="catalog__list">
-						<div class="catalog__filterMobile">
-							<div class="catalog__select catalog__categoryBtn">
-								<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-								<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-								<button class="catalog__selectBtn" type="button"></button>
-								<div class="catalog__selectOptions">
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
+						<div class="catalog__listHeader flexbox">
+							<button class="catalog__categoryReset catalog__categoryBtn">Все товары</button>
+							<div class="catalog__category flexbox">
+								<button class="catalog__categoryBtn active">Кирпич</button>
+								<button class="catalog__categoryBtn">Плитка</button>
+								<button class="catalog__categoryBtn">Кровля</button>
+								<button class="catalog__categoryBtn">Благоустройство</button>
+								<button class="catalog__categoryBtn">Смеси</button>
+								<button class="catalog__otherBtn">
+									<span class="catalog__otherBtnDot flexbox"></span>
+								</button>
+								<div class="catalog__other">
+									<button class="catalog__categoryBtn catalog__categoryBtn-other">other btn</button>
+									<button class="catalog__categoryBtn catalog__categoryBtn-other">other btn</button>
+									<button class="catalog__categoryBtn catalog__categoryBtn-other">other btn</button>
 								</div>
 							</div>
-							<button type="button" class="catalog__filtersBtn">Фильтры 
-								<svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M10.9851 0.5C10.3307 1.35207 9.50184 2.43249 8.7649 3.39348L7.4763 5.07421L7.08177 5.58892L6.97409 5.72942L6.94604 5.76603L6.93888 5.77536L6.93708 5.77772L6.93662 5.77831L6.93651 5.77846L7.33333 6.08265L6.93647 5.77851L6.83333 5.91309V6.08265V10.3136H5.16667V6.08265V5.91282L5.06324 5.77813L4.66667 6.08265L5.0632 5.77808L5.06308 5.77793L5.06263 5.77734L5.06082 5.77498L5.05365 5.76565L5.02555 5.72905L4.91769 5.58858L4.52253 5.07391L3.23248 3.39332C2.49474 2.43209 1.6658 1.35173 1.01293 0.5H10.9851Z" stroke="#C04941"/>
-								</svg>
-							</button>
 						</div>
-						<div class="catalog__filter revealator revealator-once flexbox">
-							<div class="catalog__select ">
-
-								<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-								<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-								<button class="catalog__selectBtn" type="button"></button>
-								<div class="catalog__selectOptions">
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-								</div>
-							</div>
-							<div class="catalog__select ">
-
-								<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-								<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-								<button class="catalog__selectBtn" type="button"></button>
-								<div class="catalog__selectOptions">
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-								</div>
-							</div>
-							<div class="catalog__select ">
-
-								<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-								<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-								<button class="catalog__selectBtn" type="button"></button>
-								<div class="catalog__selectOptions">
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-								</div>
-							</div>
-							<div class="catalog__select ">
-
-								<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-								<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-								<button class="catalog__selectBtn" type="button"></button>
-								<div class="catalog__selectOptions">
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-								</div>
-							</div>
-							<div class="catalog__select ">
-								<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-								<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-								<button class="catalog__selectBtn" type="button"></button>
-								<div class="catalog__selectOptions">
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-									<div class="catalog__selectOption">3211</div>
-								</div>
-							</div>
-							<button type="button" class="catalog__other">Еще параметры</button>
-
-						</div>
-						
-
-						<div class="catalog__box  flexbox">
-							
-							<form class="catalog__otherFilter">
-								<div class="catalog__filter--mobile flexbox">
-									<div class="catalog__select ">
-		
-										<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-										<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-										<button class="catalog__selectBtn" type="button"></button>
-										<div class="catalog__selectOptions">
-											<div class="catalog__selectOption">3211</div>
-											<div class="catalog__selectOption">3211</div>
-											<div class="catalog__selectOption">3211</div>
-										</div>
-									</div>
-									<div class="catalog__select ">
-		
-										<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-										<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-										<button class="catalog__selectBtn" type="button"></button>
-										<div class="catalog__selectOptions">
-											<div class="catalog__selectOption">3211</div>
-											<div class="catalog__selectOption">3211</div>
-											<div class="catalog__selectOption">3211</div>
-										</div>
-									</div>
-									<div class="catalog__select ">
-		
-										<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-										<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-										<button class="catalog__selectBtn" type="button"></button>
-										<div class="catalog__selectOptions">
-											<div class="catalog__selectOption">3211</div>
-											<div class="catalog__selectOption">3211</div>
-											<div class="catalog__selectOption">3211</div>
-										</div>
-									</div>
-									<div class="catalog__select ">
-		
-										<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-										<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-										<button class="catalog__selectBtn" type="button"></button>
-										<div class="catalog__selectOptions">
-											<div class="catalog__selectOption">3211</div>
-											<div class="catalog__selectOption">3211</div>
-											<div class="catalog__selectOption">3211</div>
-										</div>
-									</div>
-									<div class="catalog__select ">
-										<input class="catalog__selectInput" id="type" name="type" type="text" value="Любой">
-										<label class="catalog__selectLabel" for="type">Тип кирпича</label>
-										<button class="catalog__selectBtn" type="button"></button>
-										<div class="catalog__selectOptions">
-											<div class="catalog__selectOption">3211</div>
-											<div class="catalog__selectOption">3211</div>
-											<div class="catalog__selectOption">3211</div>
-										</div>
-									</div>
-									<button type="button" class="catalog__other">Еще параметры</button>
-		
-								</div>
-								<div class="catalog__otherFilterRow">
-									<span class="catalog__otherFilterTitle">Цена</span>
-									<div class="catalog__otherFilterBox">
-										<span class="catalog__otherFilterPrice">от</span>
-										<input type="text" class="catalog__otherFilterInput" data-number value="100">
-										<span class="catalog__otherFilterPrice">до</span>
-										<input type="text" class="catalog__otherFilterInput" data-number value="10 000">
-									</div>
-								</div>
-								<div class="catalog__otherFilterRow">
-									<span class="catalog__otherFilterTitle">Марка</span>
-									<div class="catalog__otherFilterBox">
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio1"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio1">175</label>
-										</div>
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio2"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio2">200</label>
-										</div>
-									</div>
-								</div>
-								<div class="catalog__otherFilterRow">
-									<span class="catalog__otherFilterTitle">Марка</span>
-									<div class="catalog__otherFilterBox">
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio1"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio1">175</label>
-										</div>
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio2"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio2">200</label>
-										</div>
-									</div>
-								</div>
-								<div class="catalog__otherFilterRow">
-									<span class="catalog__otherFilterTitle">Марка</span>
-									<div class="catalog__otherFilterBox">
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio1"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio1">175</label>
-										</div>
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio2"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio2">200</label>
-										</div>
-									</div>
-								</div>
-								<div class="catalog__otherFilterRow">
-									<span class="catalog__otherFilterTitle">Марка</span>
-									<div class="catalog__otherFilterBox">
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio1"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio1">175</label>
-										</div>
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio2"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio2">200</label>
-										</div>
-									</div>
-								</div>
-								<div class="catalog__otherFilterRow">
-									<span class="catalog__otherFilterTitle">Марка</span>
-									<div class="catalog__otherFilterBox">
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio1"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio1">175</label>
-										</div>
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio2"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio2">200</label>
-										</div>
-									</div>
-								</div>
-								<div class="catalog__otherFilterRow">
-									<span class="catalog__otherFilterTitle">Марка</span>
-									<div class="catalog__otherFilterBox">
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio1"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio1">175</label>
-										</div>
-										<div class="catalog__otherFilterRadio">
-											<input class="catalog__otherFilterRadio" type="radio" id="radio2"
-												name="radios" value="Стандатный">
-											<label class="catalog__otherFilterLabel" for="radio2">200</label>
-										</div>
-									</div>
-								</div>
-								<button class="catalog__otherFilterApply">применить</button>
-								<button class="catalog__otherFilterCancel">отменить</button>
-							</form>
-							<div class="catalog__item revealator revealator-once">
+						<div class="catalog__box flexbox">
+							<!-- <a href="" class="catalog__sale">
+								<img src="img/sale.jpg" alt="">
+							</a> -->
+							<div class="catalog__item">
 								<div class="catalog__controls">
 									<button type='button' class="catalog__compareBtn flexbox">
 										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -376,7 +161,6 @@
 												d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
 												fill="#D6D6D6" />
 										</svg>
-										сравнить
 									</button>
 									<button type='button' class="catalog__favoriteBtn">
 										<svg width="22" height="18" viewBox="0 0 22 18" fill="none"
@@ -387,12 +171,67 @@
 										</svg>
 									</button>
 								</div>
-								<div class="catalog__galleryTop">
-									<div class="catalog__itemGallery">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
+								<div class="catalog__itemGallery">
+									<button type="button" class="catalog__previewBtn">быстрый просмотр</button>
+									<img src="img/slide2.jpg" alt="" class="catalog__itemImg">
+									<a href="/" class="catalog__link"></a>
+								</div>
+								<div class="catalog__info">
+									<a href="/" class="catalog__itemTitle">Ladoga</a>
+									<div class="catalog__description flexbox">
+										<div class="catalog__descriptionCol">
+											<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
+											</div>
+											<div class="catalog__descriptionItem catalog__descriptionItem-name">Цвет
+											</div>
+											<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
+											</div>
+											<div class="catalog__descriptionItem catalog__descriptionItem-name">Бренд
+											</div>
+											<div class="catalog__price catalog__price-perItem">25 ₽/шт</div>
+										</div>
+										<div class="catalog__descriptionCol">
+											<div class="catalog__descriptionItem">215х100х65</div>
+											<div class="catalog__descriptionItem catalog__descriptionItem-color ">
+												<div class="catalog__descriptionColor" style='background-color: red'>
+												</div>
+												<div class="catalog__descriptionColor" style='background-color: purple'>
+												</div>
+												<div class="catalog__descriptionColor" style='background-color:blue'>
+												</div>
+												<div class="catalog__descriptionColor" style='background-color: black'>
+												</div>
+											</div>
+											<div class="catalog__descriptionItem">Германия</div>
+											<div class="catalog__descriptionItem">Ladoga</div>
+											<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
+										</div>
 									</div>
+								</div>
+
+							</div>
+							<div class="catalog__item">
+								<div class="catalog__controls">
+									<button type='button' class="catalog__compareBtn flexbox">
+										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
+												fill="#D6D6D6" />
+										</svg>
+									</button>
+									<button type='button' class="catalog__favoriteBtn">
+										<svg width="22" height="18" viewBox="0 0 22 18" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M10.1563 3.23688L11 4.56263L11.8437 3.23688C12.7092 1.8768 14.2401 1 16 1C18.7477 1 21 3.25228 21 6C21 7.19912 20.4451 8.49187 19.4748 9.81489C18.5123 11.1275 17.207 12.3795 15.8668 13.476C14.5314 14.5686 13.1911 15.4828 12.1819 16.1251C11.6974 16.4334 11.2914 16.6776 11.0019 16.8473C10.7121 16.6763 10.3056 16.4301 9.82039 16.1195C8.81085 15.4732 7.47008 14.5541 6.13429 13.4582C4.79354 12.3581 3.48771 11.1042 2.52468 9.79315C1.55346 8.47097 1 7.18498 1 6C1 3.25228 3.25228 1 6 1C7.75986 1 9.29084 1.8768 10.1563 3.23688Z"
+												stroke="#D6D6D6" stroke-width="2" />
+										</svg>
+									</button>
+								</div>
+								<div class="catalog__itemGallery">
+									<button type="button" class="catalog__previewBtn">быстрый просмотр</button>
+									<img src="img/item.png" alt="" class="catalog__itemImg">
 									<a href="/" class="catalog__link"></a>
 								</div>
 								<div class="catalog__info">
@@ -415,9 +254,8 @@
 										</div>
 									</div>
 								</div>
-								<button class="catalog__orderBtn">заказать</button>
 							</div>
-							<div class="catalog__item revealator revealator-once">
+							<div class="catalog__item">
 								<div class="catalog__controls">
 									<button type='button' class="catalog__compareBtn flexbox">
 										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -426,7 +264,6 @@
 												d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
 												fill="#D6D6D6" />
 										</svg>
-										сравнить
 									</button>
 									<button type='button' class="catalog__favoriteBtn">
 										<svg width="22" height="18" viewBox="0 0 22 18" fill="none"
@@ -437,12 +274,9 @@
 										</svg>
 									</button>
 								</div>
-								<div class="catalog__galleryTop">
-									<div class="catalog__itemGallery">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-									</div>
+								<div class="catalog__itemGallery">
+									<button type="button" class="catalog__previewBtn">быстрый просмотр</button>
+									<img src="" alt="" class="catalog__itemImg">
 									<a href="/" class="catalog__link"></a>
 								</div>
 								<div class="catalog__info">
@@ -450,6 +284,8 @@
 									<div class="catalog__description flexbox">
 										<div class="catalog__descriptionCol">
 											<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
+											</div>
+											<div class="catalog__descriptionItem catalog__descriptionItem-name">Цвет
 											</div>
 											<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
 											</div>
@@ -459,15 +295,25 @@
 										</div>
 										<div class="catalog__descriptionCol">
 											<div class="catalog__descriptionItem">215х100х65</div>
+											<div class="catalog__descriptionItem catalog__descriptionItem-color ">
+												<div class="catalog__descriptionColor" style='background-color: red'>
+												</div>
+												<div class="catalog__descriptionColor" style='background-color: purple'>
+												</div>
+												<div class="catalog__descriptionColor" style='background-color:blue'>
+												</div>
+												<div class="catalog__descriptionColor" style='background-color: black'>
+												</div>
+											</div>
 											<div class="catalog__descriptionItem">Германия</div>
 											<div class="catalog__descriptionItem">Ladoga</div>
 											<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
 										</div>
 									</div>
 								</div>
-								<button class="catalog__orderBtn">заказать</button>
+
 							</div>
-							<div class="catalog__item revealator revealator-once">
+							<div class="catalog__item">
 								<div class="catalog__controls">
 									<button type='button' class="catalog__compareBtn flexbox">
 										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -476,7 +322,6 @@
 												d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
 												fill="#D6D6D6" />
 										</svg>
-										сравнить
 									</button>
 									<button type='button' class="catalog__favoriteBtn">
 										<svg width="22" height="18" viewBox="0 0 22 18" fill="none"
@@ -487,12 +332,9 @@
 										</svg>
 									</button>
 								</div>
-								<div class="catalog__galleryTop">
-									<div class="catalog__itemGallery">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-									</div>
+								<div class="catalog__itemGallery">
+									<button type="button" class="catalog__previewBtn">быстрый просмотр</button>
+									<img src="img/item.png" alt="" class="catalog__itemImg">
 									<a href="/" class="catalog__link"></a>
 								</div>
 								<div class="catalog__info">
@@ -500,6 +342,8 @@
 									<div class="catalog__description flexbox">
 										<div class="catalog__descriptionCol">
 											<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
+											</div>
+											<div class="catalog__descriptionItem catalog__descriptionItem-name">Цвет
 											</div>
 											<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
 											</div>
@@ -509,189 +353,30 @@
 										</div>
 										<div class="catalog__descriptionCol">
 											<div class="catalog__descriptionItem">215х100х65</div>
+											<div class="catalog__descriptionItem catalog__descriptionItem-color ">
+												<div class="catalog__descriptionColor" style='background-color: red'>
+												</div>
+												<div class="catalog__descriptionColor" style='background-color: purple'>
+												</div>
+												<div class="catalog__descriptionColor" style='background-color:blue'>
+												</div>
+												<div class="catalog__descriptionColor" style='background-color: black'>
+												</div>
+											</div>
 											<div class="catalog__descriptionItem">Германия</div>
 											<div class="catalog__descriptionItem">Ladoga</div>
 											<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
 										</div>
 									</div>
 								</div>
-								<button class="catalog__orderBtn">заказать</button>
+
 							</div>
-							<div class="catalog__item revealator revealator-once">
-								<div class="catalog__controls">
-									<button type='button' class="catalog__compareBtn flexbox">
-										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
-												fill="#D6D6D6" />
-										</svg>
-										сравнить
-									</button>
-									<button type='button' class="catalog__favoriteBtn">
-										<svg width="22" height="18" viewBox="0 0 22 18" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M10.1563 3.23688L11 4.56263L11.8437 3.23688C12.7092 1.8768 14.2401 1 16 1C18.7477 1 21 3.25228 21 6C21 7.19912 20.4451 8.49187 19.4748 9.81489C18.5123 11.1275 17.207 12.3795 15.8668 13.476C14.5314 14.5686 13.1911 15.4828 12.1819 16.1251C11.6974 16.4334 11.2914 16.6776 11.0019 16.8473C10.7121 16.6763 10.3056 16.4301 9.82039 16.1195C8.81085 15.4732 7.47008 14.5541 6.13429 13.4582C4.79354 12.3581 3.48771 11.1042 2.52468 9.79315C1.55346 8.47097 1 7.18498 1 6C1 3.25228 3.25228 1 6 1C7.75986 1 9.29084 1.8768 10.1563 3.23688Z"
-												stroke="#D6D6D6" stroke-width="2" />
-										</svg>
-									</button>
-								</div>
-								<div class="catalog__galleryTop">
-									<div class="catalog__itemGallery">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-									</div>
-									<a href="/" class="catalog__link"></a>
-								</div>
-								<div class="catalog__info">
-									<a href="/" class="catalog__itemTitle">Ladoga</a>
-									<div class="catalog__description flexbox">
-										<div class="catalog__descriptionCol">
-											<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
-											</div>
-											<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
-											</div>
-											<div class="catalog__descriptionItem catalog__descriptionItem-name">Бренд
-											</div>
-											<div class="catalog__price catalog__price-perItem">25 ₽/шт</div>
-										</div>
-										<div class="catalog__descriptionCol">
-											<div class="catalog__descriptionItem">215х100х65</div>
-											<div class="catalog__descriptionItem">Германия</div>
-											<div class="catalog__descriptionItem">Ladoga</div>
-											<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
-										</div>
-									</div>
-								</div>
-								<button class="catalog__orderBtn">заказать</button>
-							</div>
-							<div class="catalog__item revealator revealator-once">
-								<div class="catalog__controls">
-									<button type='button' class="catalog__compareBtn flexbox">
-										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
-												fill="#D6D6D6" />
-										</svg>
-										сравнить
-									</button>
-									<button type='button' class="catalog__favoriteBtn">
-										<svg width="22" height="18" viewBox="0 0 22 18" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M10.1563 3.23688L11 4.56263L11.8437 3.23688C12.7092 1.8768 14.2401 1 16 1C18.7477 1 21 3.25228 21 6C21 7.19912 20.4451 8.49187 19.4748 9.81489C18.5123 11.1275 17.207 12.3795 15.8668 13.476C14.5314 14.5686 13.1911 15.4828 12.1819 16.1251C11.6974 16.4334 11.2914 16.6776 11.0019 16.8473C10.7121 16.6763 10.3056 16.4301 9.82039 16.1195C8.81085 15.4732 7.47008 14.5541 6.13429 13.4582C4.79354 12.3581 3.48771 11.1042 2.52468 9.79315C1.55346 8.47097 1 7.18498 1 6C1 3.25228 3.25228 1 6 1C7.75986 1 9.29084 1.8768 10.1563 3.23688Z"
-												stroke="#D6D6D6" stroke-width="2" />
-										</svg>
-									</button>
-								</div>
-								<div class="catalog__galleryTop">
-									<div class="catalog__itemGallery">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-									</div>
-									<a href="/" class="catalog__link"></a>
-								</div>
-								<div class="catalog__info">
-									<a href="/" class="catalog__itemTitle">Ladoga</a>
-									<div class="catalog__description flexbox">
-										<div class="catalog__descriptionCol">
-											<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
-											</div>
-											<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
-											</div>
-											<div class="catalog__descriptionItem catalog__descriptionItem-name">Бренд
-											</div>
-											<div class="catalog__price catalog__price-perItem">25 ₽/шт</div>
-										</div>
-										<div class="catalog__descriptionCol">
-											<div class="catalog__descriptionItem">215х100х65</div>
-											<div class="catalog__descriptionItem">Германия</div>
-											<div class="catalog__descriptionItem">Ladoga</div>
-											<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
-										</div>
-									</div>
-								</div>
-								<button class="catalog__orderBtn">заказать</button>
-							</div>
-							<div class="catalog__item revealator revealator-once">
-								<div class="catalog__controls">
-									<button type='button' class="catalog__compareBtn flexbox">
-										<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
-												fill="#D6D6D6" />
-										</svg>
-										сравнить
-									</button>
-									<button type='button' class="catalog__favoriteBtn">
-										<svg width="22" height="18" viewBox="0 0 22 18" fill="none"
-											xmlns="http://www.w3.org/2000/svg">
-											<path
-												d="M10.1563 3.23688L11 4.56263L11.8437 3.23688C12.7092 1.8768 14.2401 1 16 1C18.7477 1 21 3.25228 21 6C21 7.19912 20.4451 8.49187 19.4748 9.81489C18.5123 11.1275 17.207 12.3795 15.8668 13.476C14.5314 14.5686 13.1911 15.4828 12.1819 16.1251C11.6974 16.4334 11.2914 16.6776 11.0019 16.8473C10.7121 16.6763 10.3056 16.4301 9.82039 16.1195C8.81085 15.4732 7.47008 14.5541 6.13429 13.4582C4.79354 12.3581 3.48771 11.1042 2.52468 9.79315C1.55346 8.47097 1 7.18498 1 6C1 3.25228 3.25228 1 6 1C7.75986 1 9.29084 1.8768 10.1563 3.23688Z"
-												stroke="#D6D6D6" stroke-width="2" />
-										</svg>
-									</button>
-								</div>
-								<div class="catalog__galleryTop">
-									<div class="catalog__itemGallery">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-										<img src="img/item.png" alt="" class="catalog__itemImg">
-									</div>
-									<a href="/" class="catalog__link"></a>
-								</div>
-								<div class="catalog__info">
-									<a href="/" class="catalog__itemTitle">Ladoga</a>
-									<div class="catalog__description flexbox">
-										<div class="catalog__descriptionCol">
-											<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
-											</div>
-											<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
-											</div>
-											<div class="catalog__descriptionItem catalog__descriptionItem-name">Бренд
-											</div>
-											<div class="catalog__price catalog__price-perItem">25 ₽/шт</div>
-										</div>
-										<div class="catalog__descriptionCol">
-											<div class="catalog__descriptionItem">215х100х65</div>
-											<div class="catalog__descriptionItem">Германия</div>
-											<div class="catalog__descriptionItem">Ladoga</div>
-											<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
-										</div>
-									</div>
-								</div>
-								<button class="catalog__orderBtn">заказать</button>
-							</div>
-							<div class="catalog__moreBox revealator revealator-once">
+							<div class="catalog__moreBox">
 								<button class="catalog__more flexbox">+3</button>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
-		<section class="recall revealator revealator-once">
-			<div class="wrap">
-				<form action="" class="form recall__form">
-					<h4 class="recall__title">Нужна помощь в выборе или остались вопросы?</h4>
-					<h5 class="recall__subTitle">Мы перезвоним вам в течение 15 минут!</h5>
-					<div class="recall__box flexbox">
-						<div class="recall__field">
-							<input class="recall__input" id="name" name="name" type="text">
-							<label for="name" lass="recall__label">Ваше имя</label>
-						</div>
-						<div class="recall__field">
-							<input class="recall__input" data-number id="phone" name="phone" type="text">
-							<label for="phone" class="recall__label">Ваш телефон</label>
-						</div>
-						<button class="recall__submit">Отправить</button>
-					</div>
-				</form>
 			</div>
 		</section>
 		<footer class="footer">

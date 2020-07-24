@@ -124,6 +124,13 @@ input {
     outline: none;
     @extend .animate;
     font-size: 1rem;
+    &[disabled]{
+        opacity: .7;
+        cursor: default;
+        &:hover{
+            background-color: initial !important;
+        }
+    }
 }
 
 button {
@@ -154,10 +161,89 @@ textarea {
     }
 }
 
-.field {
+%field {
     position: relative;
-}
+    & > input{
+        border-radius: 0;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0 0.625rem;
+        height: 1.875rem;
+        cursor: text;
+        font-size: 0.875rem;
+        border-bottom: 1px solid rgba(0,0,0, .2);
+        &:not([value=""]) {
+            border-color: $el;
 
+            &~label:not(.error) {
+                top: -.4rem;
+                left:  0.625rem;
+                font-size: .8rem;
+            }
+        }
+
+        &:focus {
+            border-color: $el;
+
+            &~label:not(.error) {
+                top: -.4rem;
+                left:  0.625rem;
+                font-size: .8rem;
+            }
+        }
+        &~label:not(.error){
+            color: $sub;
+            left: 0;
+            top: 50%;
+            line-height: 0;
+            font-size: 0.875rem;
+            position: absolute; 
+            z-index: -1;
+            transition: left .3s, top .3s, font-size .3s;
+        }
+    }
+
+    
+    &>textarea:empty {
+        font-size: 1rem;
+        bottom: calc(50% - .5rem);
+    }
+    
+
+}
+%counter{
+    @extend .flexbox;
+    height: 2.5rem;
+    & > button{
+        height: 100%;
+        width: 2.5rem;
+        border: 1px solid $border;
+        &:first-of-type{
+            &::after{
+                content: '-'
+            }
+        }
+        &:last-of-type{
+            &::after{
+                content: '+';
+            }
+        }
+        &:hover{
+            background-color: $border;
+        }
+    }
+    & > input{
+        box-sizing: border-box;
+        height: 100%;
+        border-top: 1px solid $border;
+        width: 5.25rem;
+        padding: 0 .4rem;
+        text-align: center;
+        font-size: 0.75rem;
+        color: $text;
+        border-bottom: 1px solid $border;
+    }
+}
 .checkbox {
     width: 100%;
     position: relative;
@@ -274,7 +360,7 @@ textarea {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 3;
+    z-index: 999;
 
     // &::after {
     //     content: '';
@@ -367,6 +453,7 @@ textarea {
         }
     }
     &-arrow{
+        display: block;
         padding: 1.875rem;
         border: 1px solid $text;
         box-sizing: border-box;
@@ -496,12 +583,15 @@ textarea {
 
 .owl-thumbs {
     @extend .flexbox;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
 
     &-item {
-        max-width: 22%;
-
+        max-width: 20%;
+        margin-bottom: 1rem;
+        &:not(:last-of-type){
+            margin-right: 5%;
+        }
         &>img {
             width: 100%;
             height: 100%;
@@ -701,6 +791,9 @@ textarea {
     & > *{
         opacity: 0;
     }
+    &__logo{
+        display: none;
+    }
     &.visible{
         // animation: slideTo 1s forwards ease-in-out;
         transform: translateX(0%);
@@ -779,6 +872,10 @@ textarea {
         &Phone {
             color: $gen;
         }
+        &Email{
+            color: $gen;
+            margin-left: 1rem;
+        }
     }
 
     &__list {
@@ -800,7 +897,10 @@ textarea {
         color: $gen;
         display: block;
 
-        &-sub {
+        &Sub {
+            display: block;
+            padding-bottom: 20px;
+            color: $gen;
             font-size: 0.7778rem;
             opacity: .5;
         }
@@ -809,6 +909,8 @@ textarea {
             color: $el;
         }
     }
+
+
 }
 
 .nav {
@@ -1211,7 +1313,9 @@ textarea {
 
     }
     &__controls{
+        
         & button{
+            display: inline-flex;
             margin-left: 0;
             margin-right: 2rem;
         }
@@ -1587,7 +1691,76 @@ textarea {
     display: block;
     color: $sub;
 }
+// CATEGORY
+.category{
+    margin-top: 6rem;
+    &__title {
+        margin-bottom: 5.6rem;
+    }
+    &__box{
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    &__item{
+        position: relative;
+        width: 39%;
+        margin-bottom: 2rem;
+        &--long{
+            width: 58%;
+        }
+        &Title{
+            @extend h4;
+            display: block;
+            margin-bottom: 1.875rem;
+        }
+        &Gallery {
+            width: 100%;
+            position: relative;
+        }
 
+        &Img {
+            height: 20.625rem;
+            max-width: 100%;
+            object-fit: cover !important;
+        }
+    }
+    &__info{
+        height: 15.75rem;
+        box-sizing: border-box;
+        padding: 1.2rem 1.625rem 2.5rem; 
+    }
+    &__description{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__arrow{
+        @extend .icon-arrow;
+        position: absolute;
+        width: 5rem;
+        height: 5rem;
+        bottom: 2.5rem;
+        right: 1.625rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__link{
+        width: 50%;
+        display: block;
+        font-size: 0.875rem;
+        margin-bottom: 0.75rem;
+        color: $gen;
+        &:hover{
+            color: $el;
+        }
+        &--val{
+            font-size: 0.625rem;
+            opacity: .5;
+            margin-left: .5rem;
+        }
+    }
+}
 // CATALOG 
 
 .catalog {
@@ -1610,180 +1783,200 @@ textarea {
         justify-content: space-between;
     }
 
-    &__listHeader {
-        position: relative;
-        border-bottom: 1px solid $border;
-    }
-
-    // &__field {}
-
-    // &__input {}
-
-    // &__label {
-    // }
-
-    &__category {
-
-        &Btn {
-            padding-bottom: 1.6rem;
-            display: block;
-            margin-right: 1.6rem;
-            position: relative;
-            transition: color .3s;
-
-            &::after {
-                content: '';
-                position: absolute;
-                top: calc(100% - 1rem);
-                left: 0;
-                width: 0;
-                opacity: 0;
-                height: 1px;
-                transition: opacity .3s, width .3s;
-                background-color: $el;
-            }
-
-            &:active,
-            &:hover {
-                color: $el
-            }
-
-            &.active {
-                color: $el;
-
-                &::after {
-                    width: 100%;
-                    opacity: 1;
-                }
-            }
-
-            &-other {
-                margin-right: 0;
-
-            }
-
-        }
-    }
-
-    &__other {
-        position: absolute;
-        right: -1rem;
-        top: -1rem;
-        background-color: #fff;
-        padding: 1rem 3rem 0 1rem;
-        border: 1px solid $border;
-        display: none;
-
-        &Btn {
-            z-index: 1;
-            position: relative;
-            width: 1.75rem;
-            margin: -.3rem 0 1.3rem -.3rem;
-            padding: .3rem;
-
-            &Dot {
-                margin-left: calc(50% - 1px);
-
-                &,
-                &::after,
-                &::before {
-                    transition: background-color .3s, height .1s;
-                    height: 2px;
-                    width: 2px;
-                    background-color: #000000;
-
-                }
-
-                &::after,
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: .3rem;
-                    left: .3rem;
-                    transform: rotate(-45deg);
-                }
-
-                &::before {
-                    transform: rotate(45deg);
-                    left: auto;
-                    right: .3rem;
-                }
-            }
-
-            &:active,
-            &:hover {
-
-                .catalog__otherBtnDot,
-                .catalog__otherBtnDot::after,
-                .catalog__otherBtnDot::before {
-                    background-color: $el;
-                }
-            }
-
-            &.isOpen {
-                .catalog__otherBtnDot {
-                    background-color: transparent;
-
-                    &::after,
-                    &::before {
-                        width: 1px;
-                        height: 1rem;
-                        right: auto;
-                        left: calc(50%);
-                        top: -.2rem;
-                        background-color: $gen;
-                    }
-                }
-
-                &:active,
-                &:hover {
-
-                    .catalog__otherBtnDot::after,
-                    .catalog__otherBtnDot::before {
-                        background-color: $el;
-                    }
-                }
-            }
-        }
-    }
-
     &__list {
-        width: 75%;
+        width: 100%;
     }
 
     &__box {
+        // z-index: -1;
         flex-wrap: wrap;
         margin-top: 3.3rem;
         align-items: flex-start;
         justify-content: flex-start;
+        position: relative;
     }
+    &__filter{
+        position: relative;
+        z-index: 1;
+        align-items: flex-start;
+        &Mobile{
+            display: none;
+        }
+    }
+    &__otherFilter{
+        display: none;
+        padding-bottom: 2rem;
+        flex-wrap: wrap;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        background-color: #ffffff;
+        position: absolute;
+        width: 100%;
 
-    &__filter {
-        width: 25%;
-
-        &Box {
-            padding-top: 5rem;
-            border-top: 1px solid $border;
+        &Row{
+            width: 100%;
+            display: flex;
+            padding: 1.4rem 0;
+            border-bottom: 1px solid $text;
+        }
+        &Box{
+            
+            display: flex;
+            align-items: center;
+        }
+        &Title{
+            @extend .flexbox;
+            width: 12.5rem;
+            color: $text;
+            font-size: 0.75rem;
+        }
+        &Price{
+            padding-right: 0.875rem;
+        }
+        &Input{
+            text-align: center;
+            box-sizing: border-box;
+            padding: 0 0.625rem;
+            width: 7.5rem;
+        }
+        &Radio{
+            @extend .checkbox;
+            & > label{
+                &::before{
+                    border-radius: 50%;
+                }
+                &::after{
+                    background-color: $el;
+                    border-radius: 50%;
+                    background-image: none;
+                    height: 16px;
+                    width: 16px;
+                    top: calc(50% - 8px);
+                    left: 2px;
+                }
+            }
+            &:not(:last-of-type){
+                margin-right: 2rem;
+            }
+        }
+        &Apply{
+            margin-top: 5rem;
+            @extend .button;
+            border-color: $el;
+            background-color: $el;
+            color: #ffffff;
+            max-width: 20rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            display: inline-flex;
+            &:hover{
+                color: $el;
+                background-color: #ffffff;
+            }
+        }
+        &Cancel{
+            margin-top: 5rem;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            height: 5rem;
+            letter-spacing: 0.08em;
+            display: inline-flex;
+            margin-left: 4.875rem;
+            transition: color .3s;
+            &:hover{
+                color: $el;
+            }
         }
     }
 
-    $height: 2rem;
+    &__orderBtn{
+        display: none;
+    }
+
+    $height: 3.125rem;
+
+    &__other{
+        text-transform: uppercase;
+        border: 1px solid var(--text);
+        height: $height;
+        letter-spacing: 0.08em;
+        width: calc(100% / 6);
+        position: relative;
+        font-size: 0.75rem;
+        transition: background-color .3s, color .3s;
+        &:hover{
+            background-color: $el;
+            color: #ffffff;
+        }
+        &::after{
+            content: 'Скрыть';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: $el;
+            color: #ffffff;
+            transition: visibility .3s, opacity .3s;
+            visibility: hidden;
+            opacity: 0;
+        }
+        &.isOpen{
+            color: $el;
+            &:hover{
+                color: #ffffff;
+            }
+            &::after{
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
 
     &__select {
+        width: calc(100% / 6);
         transition: height .3s;
-        @extend .flexbox;
         flex-wrap: wrap;
         position: relative;
-        overflow: hidden;
+        box-sizing: border-box;
         height: $height;
-
+        z-index: 5;
+        &Label{
+            bottom: calc(100% + 0.375rem);
+            left: 0;
+            color: $sub;
+            font-size: 0.75rem;
+            position: absolute;
+        }
+        &Input{
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            
+        }
+        &Input,
+        &Option{
+            box-sizing: border-box;
+            font-size: 0.875rem;
+            padding: 0 16px;
+            background-color: #fff;
+        }
         &Btn {
+            border: 1px solid $text;
+            border-right: 0;
             @extend .flexbox;
-            z-index: 1;
+            z-index: 2;
             height: $height;
             position: relative;
             padding-right: 2rem;
-
+            width: 100%;
+            height: 100%;
             &::after,
             &::before {
                 content: '';
@@ -1792,9 +1985,9 @@ textarea {
                 right: 1rem;
                 height: 1px;
                 width: 6px;
-                background-color: $el;
+                background-color: $gen;
                 transform: rotate(45deg);
-                transition: transform .3s;
+                transition: transform .3s, background-color .3s;
             }
 
             &::before {
@@ -1811,37 +2004,48 @@ textarea {
                     transform: rotate(45deg);
                 }
 
-                &~.catalog__options {
+                &~.catalog__selectOptions {
                     opacity: 1;
                 }
             }
+            &:hover{
+                &::after,
+                &::before{
+                    background-color: $el;
+                }
+            }
         }
-    }
-
-    &__options {
-        width: 100%;
-        opacity: 0;
-        transition: opacity .3s;
-    }
-
-    &__option {
-        width: 100%;
-        height: $height;
-        @extend .checkbox;
-        @extend .flexbox;
-
-        &:first-child {
-            margin-top: 1rem;
+        &Options {    
+            z-index: 1;
+            width: calc(100% - 1px);
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            transition: height .5s, opacity .3s;
+            border: 1px solid var(--text);
+            border-top: 0;
         }
-
-        &:last-child {
-            margin-bottom: 1rem;
+    
+        &Option {
+            border-top: 0;
+            box-sizing: border-box;
+            border-bottom: 1px solid var(--text);
+            width: 100%;
+            height: $height;
+            @extend .checkbox;
+            @extend .flexbox;
+            cursor: pointer;
+            transition: background-color .3s;
+            &:hover{
+                background-color: $text;
+            }
         }
+    
     }
 
-    &__otherOptions {
-        margin-top: 2rem;
-    }
 
     &__item {
         background-color: #fff;
@@ -1851,7 +2055,7 @@ textarea {
         margin-right: 3.5%;
         margin-bottom: 4rem;
 
-        &:nth-child(3) {
+        &:nth-child(3n + 1) {
             margin-right: 0;
         }
 
@@ -1866,8 +2070,16 @@ textarea {
         }
 
         &Gallery {
+            padding-top: 2rem;
             height: 11rem;
             position: relative;
+            .owl-dots{
+                padding: 0.4rem 0 0; 
+            }
+            .owl-item{
+                height: 11rem;
+                opacity: 1;
+            }
         }
 
         &Img {
@@ -1875,6 +2087,7 @@ textarea {
             margin: 0 auto;
             display: block;
             object-fit: contain;
+        
         }
 
         &Title {
@@ -1981,7 +2194,7 @@ textarea {
     //     }
     // }
     &__controls {
-        z-index: 1;
+        z-index: 2;
         position: relative;
     }
 
@@ -1993,12 +2206,11 @@ textarea {
 
     &__compareBtn {
         @extend .compareBtn;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.08em;
         text-transform: uppercase;
         font-size: 0.7rem;
         color: $sub;
         left: 1.2rem;
-
         svg {
             padding-right: 10px;
         }
@@ -2022,6 +2234,35 @@ textarea {
     }
 }
 
+.recall{
+    margin-top: 5rem;
+    &__title{
+        margin-bottom: 1.875rem;    
+    }
+    &__subTitle{
+        color: $sub;
+    }
+    &__box{
+        margin-top: 0.625rem;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+    &__field{
+        width: 30%;
+        @extend %field;
+    }
+    &__submit{
+        @extend .button;
+        background-color: $el;
+        border-color: $el;
+        color: #ffffff;
+        max-width: 30%;
+        &:hover{
+            background-color: #ffffff;
+            color: $el; 
+        }
+    }
+}
 .detail {
 
     &__item {
@@ -2165,6 +2406,9 @@ textarea {
             &Item {
                 color: $sub;
                 margin-right: 2.2rem;
+                &.active{
+                    color: $el;
+                }
             }
         }
 
@@ -2185,12 +2429,60 @@ textarea {
 .offers {
     &__title {
         margin-top: 6.7rem;
+        margin-bottom: 4.4rem;
     }
-
-    &__slider {
-        margin-top: 4.4rem;
+    &-set{
+        &__box{
+            padding: 2.5rem;
+            box-sizing: border-box;
+            border: 1px solid red;
+        }
+        .owl-item:not(:first-of-type){
+            position: relative;
+            &::after{
+                content: '+';
+                font-size: 2rem;
+                font-family: serif;
+                position: absolute;
+                right: calc(100% - 1rem);
+                top: calc(50% - 3rem);
+                width: 4.375rem;
+                height: 4.375rem;
+                @extend .flexbox;
+                justify-content: center;
+                box-sizing: border-box;
+                border-radius: 50%;
+                border: 1px solid $border;
+            }
+        }
+        &__bar{
+            @extend .flexbox;
+            justify-content: space-between;
+        }
+        &__title{
+            margin-bottom: 1.625rem;
+        }
+        &__price{
+            @extend .flexbox;
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+        &__val{
+            padding-left: 1rem;
+            font-size: 1.5rem;
+        }
+        &__sale{
+            @extend .flexbox;
+            font-size: 0.875rem;
+            color: $text;
+            &--val{
+                padding-left: 0.3rem;
+            }
+        }
+        &__counter{
+            @extend %counter;
+        }
     }
-
     &__item {
         width: 100%;
         background-color: #FAFAFA;
@@ -2206,7 +2498,7 @@ textarea {
         @extend .compareBtn;
         @extend .button-small;
         left: 1.8rem;
-
+        color: #D6D6D6;
         & svg {
             margin-right: 0.4rem;
         }
@@ -2244,12 +2536,14 @@ textarea {
         font-size: 1rem;
         font-weight: 700;
     }
-
+    &-set__nav,
     &__nav {
         justify-content: flex-end;
         margin-top: 2.8rem;
     }
-
+    &-set__nav > button{
+        padding: 1.6rem;
+    }
 }
 
 .object {

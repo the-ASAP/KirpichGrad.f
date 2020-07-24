@@ -1,12 +1,4 @@
-// function anchor() {
-//     $('.anchorLink').on('click', function () {
-//         var el = $(this).attr('href');
-//         $('html, body').animate({
-//             scrollTop: $(el).offset().top
-//         }, 1000);
-//         return false;
-//     });
-// }
+
 function stopScroll(item) {
     var documentWidth = parseInt(document.documentElement.clientWidth);
     var windowsWidth = parseInt(window.innerWidth);
@@ -29,6 +21,23 @@ function mainMenu(trigger, menu) {
         },800)
     })
 }
+
+const filterModal =(trigger, modal) => {
+    $(trigger).on('click', function(){
+        if($(this).hasClass('isOpen')){
+            $(this).removeClass('isOpen');
+            $(modal).fadeOut();
+        }else{
+            $(this).addClass('isOpen')
+            $(modal).fadeIn();
+        }
+    });
+    $('.catalog__otherFilterApply', '.catalog__otherFilterCancel').on('click', () =>{
+        $(trigger).removeClass('isOpen');
+        $(modal).fadeOut();
+    })
+}
+
 function modalOpen(trigger, modal) {
     $(trigger).on('click', function () {
         stopScroll('body');
@@ -44,7 +53,6 @@ function modalClose(btn, modal) {
         $('body').attr("style", '');
         freeScroll('body');
     });
-
 }
 
 function escClosing(modal) {
@@ -80,19 +88,28 @@ function owls() {
         $('.showroom__sliderOption-size').text(item.attr('data-size'));
         $('.showroom__sliderOption-price').text(item.attr('data-price'))
     })
-    var goodsItem = $('.goods__gallerySlider');
-    goodsItem.each(function () {
-        $(this).owlCarousel({
-            items: 1,
-            margin: 10,
-            dots: true,
-            lazyLoad: true,
 
-        })
-    });
-    $('.events__slider').owlCarousel({
+    // $('.offers__slider').owlCarousel({
+    //     margin: 40,
+    //     items: 3,
+    //     dots: false,
+    //     nav: true,
+    //     navContainer: '.offers__nav',
+    //     navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
+    //     lazyLoad: true,
+    //     thumbs: false,
+    //     smartSpeed: 1000,
+    // }); 
+
+}
+
+const owlSlider = (selector, params) =>{
+    if(params == undefined) params = ''
+    const owl = $(selector);
+    owl
+    .addClass('owl-carousel owl-theme')
+    .owlCarousel(Object.assign(params,{
         nav: true,
-        navContainer: ('.events__controls'),
         navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
         dots: false,
         items: 1,
@@ -102,18 +119,48 @@ function owls() {
         animateIn: 'fadeIn',
         smartSpeed: 1000,
         margin: 10
-    });
-    $('.offers__slider').owlCarousel({
-        margin: 40,
-        items: 3,
+    }));
+}
+
+const owlItems = (selector, params,) =>{
+    if(params == undefined) params = ''
+    const owl = $(selector);
+    owl
+    .addClass('owl-carousel owl-theme')
+    .owlCarousel(Object.assign(params,{
         dots: false,
         nav: true,
-        navContainer: '.offers__nav',
         navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
         lazyLoad: true,
         thumbs: false,
         smartSpeed: 1000,
-    }); 
+        responsive : {
+            0 : {
+                items: 1,
+                margin: 10,
+            },
+            768 : {
+                items: 3,
+                margin: 40,
+            }
+        }
+    }));
+}
+
+const owlGallery = (selector, params) => {
+    if(params == undefined) params = ''
+    const owl = $(selector);
+    owl.each((i, el)=>{
+        $(el).addClass('owl-carousel owl-theme')
+        .owlCarousel(Object.assign(params,{
+            items: 1, 
+            dots: true,
+            lazyLoad: true,
+            nav: false,
+            margin: 10,
+            smartSpeed: 1000,
+        }));
+    })
 }
 
 function detailOwls() {
@@ -129,8 +176,60 @@ function detailOwls() {
         thumbItemClass: 'owl-thumbs-item',
         smartSpeed: 400,
     });
-
 }
+
+function itemsCounter(parent, result) {
+    var parent = $(parent),
+        input = parent.find('input'),
+        button = parent.find('button'),
+        val,
+        count = 1;
+    if(input.val() == '') input.attr('value', 1).val(1)
+    $(button).eq(0).addClass('subtract');
+    $(button).eq(1).addClass('addition');
+    $('.subtract').prop('disabled', true);
+
+    $(button).on('click', function () {
+        val = Number($(this).siblings('input').attr('value')),
+        
+            count = val;
+        if (!$(this).prop('disabled')) {
+            
+            $(this).closest(parent).find(button).prop('disabled', false);
+            if ($(this).hasClass('addition')) {
+                count++
+            } else {
+                if (count - 1 <= 1) {
+                    $(this).prop('disabled', true);
+                    count == 1
+                }
+                count--
+            };
+        }
+        $(this).siblings(input).attr('value', count).val(count);
+        setResultPrice(result, count)
+    });
+    $(input)
+    .on('mouseenter', function () {
+         $(this).focus();
+     })
+    .on('input', function (e) {
+        var inputVal = Number($(this).val());
+        $(this).siblings(button).prop('disabled', false)
+            if (inputVal === '' || inputVal < 1 || inputVal == 0) {
+            $(this).attr('value', '').val('')
+            .siblings('button').prop('disabled', true);
+        }
+        $(this).attr('value', e.target.value).val(e.target.value);
+        setResultPrice(result, e.target.value)
+    });
+
+    function setResultPrice(price, val){
+        $(price).text(Number($(this).text()) * Number(val))
+    }
+}
+
+
 function objectSlider(){
     $('.object__gallery').on('initialized.owl.carousel changed.owl.carousel', function(e) {
         if (!e.namespace)  {
@@ -278,20 +377,37 @@ function toggleList(parent) {
     var parent = $(parent),
         btn = parent.find('button'),
         activeClass = ('isOpen');
-    // input = parent.find('input');
-
-    $(btn).on('click', function () {
-
-        var item = $(this).siblings('div'),
+    function closeSelect(btn, box){
+        $(btn).removeClass(activeClass)
+        $(box).height(0);
+    }
+    $(btn).on('click', function () { 
+        
+        var input = $(this).siblings('input'),
+            box = $(this).siblings('div'),
+            item = box.find('div'),
             btnH = $(this).height(),
             itemL = item.length,
             itemH = item.height();
         if (!$(this).hasClass(activeClass)) {
-            $(this).addClass(activeClass).closest(parent).addClass(activeClass).height((itemL * itemH) + btnH);
+            closeSelect($(btn),box)
+            $(this).addClass(activeClass);
+            $(box).height((itemL * itemH));
         } else {
-            $(this).removeClass(activeClass).closest(parent).removeClass(activeClass).height(btnH);
+            closeSelect($(this), box);
         }
+        $(item).on('click', function(){
+            input.val($(this).text());
+            closeSelect($(btn),box);
+        })
+        $(document).on("mousedown", function (e) {
+            if (!$(parent).is(e.target) && $(parent).has(e.target).length === 0) {
+                closeSelect($(btn),box);
+            }
+        });
     });
+    
+
 }
 // Заменить на AJAX 
 function activeItemOnClick(parent) {
@@ -306,12 +422,52 @@ function activeItemOnClick(parent) {
 function animationInit(){
     $('.animation').css({'animation-name': 'slideTo'}).hide().show(0);
 }
+function inputTypeNumberCheck() {
+    $('input[data-number]').keydown(function (event) {
+        if ($(this).hasClass('error')) {
+            $(this).removeClass('error')
+        }
+        // Разрешаем: backspace, delete, tab и escape
+        if (event.keyCode == 46 || event.keyCode == 17 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 ||
+            // Разрешаем: Ctrl+A
+            (event.keyCode == 65 && event.ctrlKey === true) ||
+            // Разрешаем: home, end, влево, вправо
+            (event.keyCode >= 35 && event.keyCode <= 39)) {
+            // Ничего не делаем
+            return;
+
+        } else {
+            // Запрещаем все, кроме цифр на основной клавиатуре, а так же Num-клавиатуре
+            if ((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+                event.preventDefault();
+            }
+        }
+    });
+}
+
+const inputSetValue = () =>{
+   $('input').each((i, el)=>{
+    if($(el).val() == ''){
+        $(el).attr('value', '');
+    }
+   }).on('input', function () {
+        $(this).removeClass('error')
+        .attr('value', $(this).val())
+    });
+}
 
 $().ready(function () {
+    inputTypeNumberCheck();
+    inputSetValue()
     mainMenu('.aside__toggle', '.mainMenu');
     modalClose('.modal__close', '.modal');
     escClosing('.modal');
     owls();
+    owlSlider('.events__slider' , {navContainer: '.events__controls'})
+    owlItems('.offers__slider', {navContainer: '.offers__nav'});
+    owlItems('.offers-set__slider', {navContainer: '.offers-set__nav'});
+    owlGallery('.goods__gallerySlider');
+    owlGallery('.catalog__itemGallery');
     tips('.tips__item');
     showMenu('.catalog__other', '.catalog__otherBtn');
     toggleList('.catalog__select'); 
@@ -320,6 +476,7 @@ $().ready(function () {
     if ($('.detail').length > '') {
         detailOwls();
         hashTabs('.detail__contentTabs', '.detail__contentWindows'); 
+        itemsCounter('.offers-set__counter', '.priceResult')
     }
     if($('.object').length  > ''){
         objectSlider();
@@ -327,32 +484,32 @@ $().ready(function () {
     if($('.contacts-page').length > ''){
         yandexMap();
     }
-    let el = document.querySelector('.preloader').style;
-
+    if($('.category').length > ''){
+        owlGallery('.category__itemGallery')
+    }
+    if($('.catalog').length > ''){
+        filterModal('.catalog__other', '.catalog__otherFilter');
+        filterModal('.catalog__filtersBtn', '.catalog__otherFilter');
+    }
     if (sessionStorage.getItem('loaded') == null){
         animationInit()
-        window.addEventListener('load', function (e) {
-            el.opacity = 1;
-            (function fade() {
-                (el.opacity -= .1) < 0 ? el.display = "none" : setTimeout(fade, 70)
-            })();
-        });
+        $('.preloader').fadeOut(300, ()=>{
+            $('.preloader').remove()
+        })
         sessionStorage.setItem('loaded', true);
     } 
     else{
         // $('.animation').removeClass('slideDown slideUp slideLeft slideRight')
         // $('.preloader').remove();
 
-        // test
-         animationInit()
-        window.addEventListener('load', function (e) {
-            el.opacity = 1;
-            (function fade() {
-                (el.opacity -= .1) < 0 ? el.display = "none" : setTimeout(fade, 70)
-            })();
-        });
+        // после тестов удилить нижнее и раскоментить но это не точно
+        $('.preloader').fadeOut(300, ()=>{
+            $('.preloader').remove()
+        })
+        animationInit()
         sessionStorage.setItem('loaded', true);
     }
+
 });
 
 
