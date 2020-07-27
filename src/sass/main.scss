@@ -2061,7 +2061,13 @@ textarea {
         &:nth-child(3n + 1) {
             margin-right: 0;
         }
-
+        &--short{
+            width: 24%;
+            margin-right: 1.33%;
+            &:nth-child(4n) {
+                margin-right: 0;
+            }
+        }
         &:hover .catalog__previewBtn {
             opacity: .9;
             visibility: visible;
@@ -2695,12 +2701,167 @@ textarea {
     }
 }
 .favorites{
+    &__title{
+        margin-top: 6.25rem;
+        margin-bottom: 4.375rem;
+    }
     &__box{
         display: flex;
         align-items: flex-start;
         justify-content: flex-start;
         flex-wrap: wrap;
     }
+    &__item{
+        width: 24%;
+        position: relative;
+        &:not(:nth-child(4n)){
+            margin-right: 1.33%;
+        }
+    }
+    &__removeBtn{
+        @extend .close-btn;
+        height: 1.2rem;
+        width: 1.2rem;
+        top: .9rem;
+        &::after,
+        &::before{
+            top: .6rem;
+            background-color: $sub;
+            width: 100%;
+        }
+    }
+}
+.compare{
+    &__title{
+        margin-top: 5rem;
+        margin-bottom: 6.25rem;
+    }
+    &__header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 2.25rem;
+        border-bottom: 1px solid $border;
+    }
+    &__reset{
+        &Btn{
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            color: $el;
+            font-size: 0.75rem;
+            &:hover{
+                opacity: .8;
+            }
+        }
+        &Icon{
+            margin-left: 1rem;
+            @extend .close-btn;
+            display: block;
+            position: relative;
+            height: 1.4rem;
+            width: 1.4rem;
+            margin-bottom: 0.1rem;
+            &::after,
+            &::before{
+                background-color: $el;
+            }
+            
+        }
+    }
+    &__tabs{
+        align-items: center;
+        &Item{
+            font-size: .9rem;
+            margin-right: 2.2rem;
+            padding-bottom: 0.875rem;
+            @extend .button-small;
+            color: $gen;
+            &.active{
+                color: $el;
+                &::before{
+                    width: 100%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    &__box{
+        margin-top: 3.75rem;
+        display: flex;
+        align-items: flex-start;
+        overflow: hidden;
+    }
+
+    &__col{
+        width: 25%;
+        position: relative;
+        padding-top: 14rem;
+    }
+    &__showDiff{
+        top: 0;
+        left: 0;
+        position: absolute;
+        @extend .button-small;
+    }
+    &__params{
+        padding-bottom: 5rem;
+        position: relative;
+    }
+    &__buyBtn{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5rem;
+        text-align: center;
+        background-color: $text;
+        color: $sub;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        transition: background-color .3s;
+        &:hover{
+            background-color: $el;
+            color: #ffffff;
+        }
+    }
+    &__row{
+        width: 100%;
+        display: block;
+        padding: 1.25rem;
+        box-sizing: border-box;
+        background-color: transparent;
+        position: relative;
+
+        &:nth-child(2n){
+            background-color: $border;
+        }
+    }
+    &__items{
+        width: 75%;
+        & .owl-item{
+            opacity: 1 !important;
+        }
+    }
+    &__item{
+        position: relative;
+        &Remove{
+            height: 2rem;
+            width: 2rem;
+            z-index: 1;
+            @extend .close-btn;
+        }
+        &Image{
+            display: block;
+            height: 14rem;
+            min-height: 14rem;
+            width: 14rem;
+            object-fit: contain;
+            padding: 2.25rem;
+            box-sizing: border-box;
+        }
+    }
+
 }
 .notFound {
     padding: 6.7rem 0 3rem;

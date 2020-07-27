@@ -118,8 +118,13 @@
 							<span class="icon-compare"></span>
 						</a>
 						<button type="button" class="nav__btn nav__btn-search animation slideDown">
-							<svg fill='#D6D6D6' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-								<path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z"/><path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"/>
+							<svg fill='#D6D6D6' xmlns="http://www.w3.org/2000/svg"
+								xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px"
+								viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+								<path
+									d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z" />
+								<path
+									d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z" />
 							</svg>
 						</button>
 						<a href="/" class="nav__btn nav__btn-favorites animation slideDown">
@@ -136,69 +141,274 @@
 		</nav>
 		<section class="favorites">
 			<div class="wrap">
-				<div class="favorites__box">
-					<div class="goods__galleryItem">
-						<div class="goods__gallerySlider revealator revealator-right revealator-once owl-carousel owl-theme">
-							<img class='goods__galleryImg owl-lazy' data-src="img/slide1.jpg" alt="">
-							<img class='goods__galleryImg owl-lazy' data-src="img/slide1.jpg" alt="">
-							<img class='goods__galleryImg owl-lazy' data-src="img/slide1.jpg" alt="">
+				<h2 class="favorites__title">
+					Избранное
+				</h2>
+				<div class="favorites__box ">
+
+					<div class="catalog__item catalog__item--short revealator revealator-once">
+						<div class="catalog__controls">
+							<button type='button' class="catalog__compareBtn flexbox">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
+										fill="#D6D6D6" />
+								</svg>
+								сравнить
+							</button>
+							<button type='button' class="offers__favoriteBtn favorites__removeBtn">
+							</button>
 						</div>
-						<div class="goods__galleryContent">
-							<h3 class='goods__galleryTitle revealator revealator-right revealator-once'>Печной кирпич</h3>
-							<div class="goods__galleryFooter revealator revealator-right revealator-once flexbox">
-								<div class="goods__galleryValue">124 позиций</div>
-								<a href="" class="goods__galleryLink">
-									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd"
-											d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"
-											fill="#C04941" />
-									</svg>
-								</a>
+						<div class="catalog__galleryTop">
+							<div class="catalog__itemGallery">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+							</div>
+							<a href="/" class="catalog__link"></a>
+						</div>
+						<div class="catalog__info">
+							<a href="/" class="catalog__itemTitle">Ladoga</a>
+							<div class="catalog__description flexbox">
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Бренд
+									</div>
+									<div class="catalog__price catalog__price-perItem">25 ₽/шт</div>
+								</div>
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem">215х100х65</div>
+									<div class="catalog__descriptionItem">Германия</div>
+									<div class="catalog__descriptionItem">Ladoga</div>
+									<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
+								</div>
 							</div>
 						</div>
+						<button class="catalog__orderBtn">заказать</button>
 					</div>
-					<div class="goods__galleryItem">
-						<div class="goods__gallerySlider revealator revealator-right revealator-once owl-carousel owl-theme">
-							<img class='goods__galleryImg owl-lazy' data-src="img/slide1.jpg" alt="">
-							<img class='goods__galleryImg owl-lazy' data-src="img/slide1.jpg" alt="">
-							<img class='goods__galleryImg owl-lazy' data-src="img/slide1.jpg" alt="">
+					<div class="catalog__item catalog__item--short revealator revealator-once">
+						<div class="catalog__controls">
+							<button type='button' class="catalog__compareBtn flexbox">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
+										fill="#D6D6D6" />
+								</svg>
+								сравнить
+							</button>
+							<button type='button' class="offers__favoriteBtn favorites__removeBtn">
+							</button>
 						</div>
-						<div class="goods__galleryContent">
-							<h3 class='goods__galleryTitle revealator revealator-right revealator-once'>Печной кирпич</h3>
-							<div class="goods__galleryFooter revealator revealator-right revealator-once flexbox">
-								<div class="goods__galleryValue">124 позиций</div>
-								<a href="" class="goods__galleryLink">
-									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd"
-											d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"
-											fill="#C04941" />
-									</svg>
-								</a>
+						<div class="catalog__galleryTop">
+							<div class="catalog__itemGallery">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+							</div>
+							<a href="/" class="catalog__link"></a>
+						</div>
+						<div class="catalog__info">
+							<a href="/" class="catalog__itemTitle">Ladoga</a>
+							<div class="catalog__description flexbox">
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Бренд
+									</div>
+									<div class="catalog__price catalog__price-perItem">25 ₽/шт</div>
+								</div>
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem">215х100х65</div>
+									<div class="catalog__descriptionItem">Германия</div>
+									<div class="catalog__descriptionItem">Ladoga</div>
+									<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
+								</div>
 							</div>
 						</div>
+						<button class="catalog__orderBtn">заказать</button>
 					</div>
-					<div class="goods__galleryItem">
-						<div class="goods__gallerySlider revealator revealator-right revealator-once owl-carousel owl-theme">
-							<img class='goods__galleryImg owl-lazy' data-src="img/slide1.jpg" alt="">
-							<img class='goods__galleryImg owl-lazy' data-src="img/slide1.jpg" alt="">
-							<img class='goods__galleryImg owl-lazy' data-src="img/slide1.jpg" alt="">
+					<div class="catalog__item catalog__item--short revealator revealator-once">
+						<div class="catalog__controls">
+							<button type='button' class="catalog__compareBtn flexbox">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
+										fill="#D6D6D6" />
+								</svg>
+								сравнить
+							</button>
+							<button type='button' class="offers__favoriteBtn favorites__removeBtn">
+							</button>
 						</div>
-						<div class="goods__galleryContent">
-							<h3 class='goods__galleryTitle revealator revealator-right revealator-once'>Печной кирпич</h3>
-							<div class="goods__galleryFooter revealator revealator-right revealator-once flexbox">
-								<div class="goods__galleryValue">124 позиций</div>
-								<a href="" class="goods__galleryLink">
-									<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-										xmlns="http://www.w3.org/2000/svg">
-										<path fill-rule="evenodd" clip-rule="evenodd"
-											d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"
-											fill="#C04941" />
-									</svg>
-								</a>
+						<div class="catalog__galleryTop">
+							<div class="catalog__itemGallery">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+							</div>
+							<a href="/" class="catalog__link"></a>
+						</div>
+						<div class="catalog__info">
+							<a href="/" class="catalog__itemTitle">Ladoga</a>
+							<div class="catalog__description flexbox">
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Бренд
+									</div>
+									<div class="catalog__price catalog__price-perItem">25 ₽/шт</div>
+								</div>
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem">215х100х65</div>
+									<div class="catalog__descriptionItem">Германия</div>
+									<div class="catalog__descriptionItem">Ladoga</div>
+									<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
+								</div>
 							</div>
 						</div>
+						<button class="catalog__orderBtn">заказать</button>
+					</div>
+					<div class="catalog__item catalog__item--short revealator revealator-once">
+						<div class="catalog__controls">
+							<button type='button' class="catalog__compareBtn flexbox">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
+										fill="#D6D6D6" />
+								</svg>
+								сравнить
+							</button>
+							<button type='button' class="offers__favoriteBtn favorites__removeBtn">
+							</button>
+						</div>
+						<div class="catalog__galleryTop">
+							<div class="catalog__itemGallery">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+							</div>
+							<a href="/" class="catalog__link"></a>
+						</div>
+						<div class="catalog__info">
+							<a href="/" class="catalog__itemTitle">Ladoga</a>
+							<div class="catalog__description flexbox">
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Бренд
+									</div>
+									<div class="catalog__price catalog__price-perItem">25 ₽/шт</div>
+								</div>
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem">215х100х65</div>
+									<div class="catalog__descriptionItem">Германия</div>
+									<div class="catalog__descriptionItem">Ladoga</div>
+									<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
+								</div>
+							</div>
+						</div>
+						<button class="catalog__orderBtn">заказать</button>
+					</div>
+					<div class="catalog__item catalog__item--short revealator revealator-once">
+						<div class="catalog__controls">
+							<button type='button' class="catalog__compareBtn flexbox">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
+										fill="#D6D6D6" />
+								</svg>
+								сравнить
+							</button>
+							<button type='button' class="offers__favoriteBtn favorites__removeBtn">
+							</button>
+						</div>
+						<div class="catalog__galleryTop">
+							<div class="catalog__itemGallery">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+							</div>
+							<a href="/" class="catalog__link"></a>
+						</div>
+						<div class="catalog__info">
+							<a href="/" class="catalog__itemTitle">Ladoga</a>
+							<div class="catalog__description flexbox">
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Бренд
+									</div>
+									<div class="catalog__price catalog__price-perItem">25 ₽/шт</div>
+								</div>
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem">215х100х65</div>
+									<div class="catalog__descriptionItem">Германия</div>
+									<div class="catalog__descriptionItem">Ladoga</div>
+									<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
+								</div>
+							</div>
+						</div>
+						<button class="catalog__orderBtn">заказать</button>
+					</div>
+					<div class="catalog__item catalog__item--short revealator revealator-once">
+						<div class="catalog__controls">
+							<button type='button' class="catalog__compareBtn flexbox">
+								<svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<path
+										d="M17 1H15C14.7348 1 14.4804 1.10536 14.2929 1.29289C14.1054 1.48043 14 1.73478 14 2V18.992H18V2C18 1.73478 17.8946 1.48043 17.7071 1.29289C17.5196 1.10536 17.2652 1 17 1ZM11 7H9C8.73478 7 8.48043 7.10536 8.29289 7.29289C8.10536 7.48043 8 7.73478 8 8V18.992H12V8C12 7.73478 11.8946 7.48043 11.7071 7.29289C11.5196 7.10536 11.2652 7 11 7ZM5 13H3C2.73478 13 2.48043 13.1054 2.29289 13.2929C2.10536 13.4804 2 13.7348 2 14V18.992H6V14C6 13.7348 5.89464 13.4804 5.70711 13.2929C5.51957 13.1054 5.26522 13 5 13Z"
+										fill="#D6D6D6" />
+								</svg>
+								сравнить
+							</button>
+							<button type='button' class="offers__favoriteBtn favorites__removeBtn">
+							</button>
+						</div>
+						<div class="catalog__galleryTop">
+							<div class="catalog__itemGallery">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+								<img src="img/item.png" alt="" class="catalog__itemImg">
+							</div>
+							<a href="/" class="catalog__link"></a>
+						</div>
+						<div class="catalog__info">
+							<a href="/" class="catalog__itemTitle">Ladoga</a>
+							<div class="catalog__description flexbox">
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Размеры
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Страна
+									</div>
+									<div class="catalog__descriptionItem catalog__descriptionItem-name">Бренд
+									</div>
+									<div class="catalog__price catalog__price-perItem">25 ₽/шт</div>
+								</div>
+								<div class="catalog__descriptionCol">
+									<div class="catalog__descriptionItem">215х100х65</div>
+									<div class="catalog__descriptionItem">Германия</div>
+									<div class="catalog__descriptionItem">Ladoga</div>
+									<div class="catalog__price catalog__price-perSpace">2 560 ₽/м²</div>
+								</div>
+							</div>
+						</div>
+						<button class="catalog__orderBtn">заказать</button>
 					</div>
 				</div>
 			</div>

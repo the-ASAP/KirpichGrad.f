@@ -145,8 +145,14 @@ button,
 input,
 .close-btn::after,
 .modal__close::after,
+.favorites__removeBtn::after,
+.compare__resetIcon::after,
+.compare__itemRemove::after,
 .close-btn::before,
-.modal__close::before {
+.modal__close::before,
+.favorites__removeBtn::before,
+.compare__resetIcon::before,
+.compare__itemRemove::before {
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   -o-transition: all .3s;
@@ -440,7 +446,10 @@ textarea::placeholder {
 }
 
 .close-btn,
-.modal__close {
+.modal__close,
+.favorites__removeBtn,
+.compare__resetIcon,
+.compare__itemRemove {
   position: absolute;
   right: 5%;
   top: 3%;
@@ -450,8 +459,14 @@ textarea::placeholder {
 
 .close-btn::after,
 .modal__close::after,
+.favorites__removeBtn::after,
+.compare__resetIcon::after,
+.compare__itemRemove::after,
 .close-btn::before,
-.modal__close::before {
+.modal__close::before,
+.favorites__removeBtn::before,
+.compare__resetIcon::before,
+.compare__itemRemove::before {
   content: '';
   width: 60%;
   height: 1px;
@@ -462,24 +477,39 @@ textarea::placeholder {
 }
 
 .close-btn::after,
-.modal__close::after {
+.modal__close::after,
+.favorites__removeBtn::after,
+.compare__resetIcon::after,
+.compare__itemRemove::after {
   transform: rotate(45deg);
 }
 
 .close-btn::before,
-.modal__close::before {
+.modal__close::before,
+.favorites__removeBtn::before,
+.compare__resetIcon::before,
+.compare__itemRemove::before {
   transform: rotate(135deg);
 }
 
 .close-btn:hover::after,
 .modal__close:hover::after,
+.favorites__removeBtn:hover::after,
+.compare__resetIcon:hover::after,
+.compare__itemRemove:hover::after,
 .close-btn:hover::before,
-.modal__close:hover::before {
+.modal__close:hover::before,
+.favorites__removeBtn:hover::before,
+.compare__resetIcon:hover::before,
+.compare__itemRemove:hover::before {
   background: var(--el);
 }
 
 .close-btn:hover,
-.modal__close:hover {
+.modal__close:hover,
+.favorites__removeBtn:hover,
+.compare__resetIcon:hover,
+.compare__itemRemove:hover {
   background: none;
 }
 
@@ -760,7 +790,9 @@ textarea::placeholder {
 .employee__request,
 .events__link,
 .detail__compare,
-.offers__compareBtn {
+.offers__compareBtn,
+.compare__tabsItem,
+.compare__showDiff {
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -774,7 +806,9 @@ textarea::placeholder {
 .employee__request::before,
 .events__link::before,
 .detail__compare::before,
-.offers__compareBtn::before {
+.offers__compareBtn::before,
+.compare__tabsItem::before,
+.compare__showDiff::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -791,11 +825,15 @@ textarea::placeholder {
 .events__link:active::before,
 .detail__compare:active::before,
 .offers__compareBtn:active::before,
+.compare__tabsItem:active::before,
+.compare__showDiff:active::before,
 .button-small:hover::before,
 .employee__request:hover::before,
 .events__link:hover::before,
 .detail__compare:hover::before,
-.offers__compareBtn:hover::before {
+.offers__compareBtn:hover::before,
+.compare__tabsItem:hover::before,
+.compare__showDiff:hover::before {
   width: 100%;
   opacity: 1;
 }
@@ -2135,6 +2173,15 @@ textarea::placeholder {
   margin-right: 0;
 }
 
+.catalog__item--short {
+  width: 24%;
+  margin-right: 1.33%;
+}
+
+.catalog__item--short:nth-child(4n) {
+  margin-right: 0;
+}
+
 .catalog__item:hover .catalog__previewBtn {
   opacity: .9;
   visibility: visible;
@@ -2736,11 +2783,181 @@ textarea::placeholder {
   position: absolute;
 }
 
+.favorites__title {
+  margin-top: 6.25rem;
+  margin-bottom: 4.375rem;
+}
+
 .favorites__box {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+.favorites__item {
+  width: 24%;
+  position: relative;
+}
+
+.favorites__item:not(:nth-child(4n)) {
+  margin-right: 1.33%;
+}
+
+.favorites__removeBtn {
+  height: 1.2rem;
+  width: 1.2rem;
+  top: .9rem;
+}
+
+.favorites__removeBtn::after,
+.favorites__removeBtn::before {
+  top: .6rem;
+  background-color: var(--subText);
+  width: 100%;
+}
+
+.compare__title {
+  margin-top: 5rem;
+  margin-bottom: 6.25rem;
+}
+
+.compare__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.compare__resetBtn {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  color: var(--el);
+  font-size: 0.75rem;
+}
+
+.compare__resetBtn:hover {
+  opacity: .8;
+}
+
+.compare__resetIcon {
+  margin-left: 1rem;
+  display: block;
+  position: relative;
+  height: 1.4rem;
+  width: 1.4rem;
+  margin-bottom: 0.1rem;
+}
+
+.compare__resetIcon::after,
+.compare__resetIcon::before {
+  background-color: var(--el);
+}
+
+.compare__tabs {
+  align-items: center;
+}
+
+.compare__tabsItem {
+  font-size: .9rem;
+  margin-right: 2.2rem;
+  padding-bottom: 0.875rem;
+  color: var(--gen);
+}
+
+.compare__tabsItem.active {
+  color: var(--el);
+}
+
+.compare__tabsItem.active::before {
+  width: 100%;
+  opacity: 1;
+}
+
+.compare__box {
+  margin-top: 3.75rem;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.compare__col {
+  width: 25%;
+  position: relative;
+  padding-top: 14rem;
+}
+
+.compare__showDiff {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.compare__params {
+  padding-bottom: 5rem;
+  position: relative;
+}
+
+.compare__buyBtn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  text-align: center;
+  background-color: var(--text);
+  color: var(--subText);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  transition: background-color .3s;
+}
+
+.compare__buyBtn:hover {
+  background-color: var(--el);
+  color: #ffffff;
+}
+
+.compare__row {
+  width: 100%;
+  display: block;
+  padding: 1.25rem;
+  box-sizing: border-box;
+  background-color: transparent;
+  position: relative;
+}
+
+.compare__row:nth-child(2n) {
+  background-color: var(--border-color);
+}
+
+.compare__items {
+  width: 75%;
+}
+
+.compare__items .owl-item {
+  opacity: 1 !important;
+}
+
+.compare__item {
+  position: relative;
+}
+
+.compare__itemRemove {
+  height: 2rem;
+  width: 2rem;
+  z-index: 1;
+}
+
+.compare__itemImage {
+  display: block;
+  height: 14rem;
+  min-height: 14rem;
+  width: 14rem;
+  object-fit: contain;
+  padding: 2.25rem;
+  box-sizing: border-box;
 }
 
 .notFound {
@@ -3387,6 +3604,19 @@ textarea::placeholder {
   .catalog__item:not(:nth-child(2n)) {
     margin-top: 0;
     margin-right: 0;
+  }
+
+  .catalog__item:not(:nth-child(2n))--short {
+    margin-right: 4%;
+  }
+
+  .catalog__item--short {
+    margin-right: 0;
+  }
+
+  .catalog__item--short:not(:nth-child(2n)) {
+    margin-top: 0;
+    margin-right: 4%;
   }
 
   .catalog__descriptionItem {

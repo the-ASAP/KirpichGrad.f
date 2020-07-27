@@ -550,6 +550,17 @@
             &:not(:nth-child(2n)) {
                 margin-top: 0;
                 margin-right: 0;
+                &--short{
+                    margin-right: 4%;
+                }
+            }
+            &--short{
+                margin-right: 0;
+                &:not(:nth-child(2n)) {
+                    margin-top: 0;
+                    margin-right:4%;
+                }
+
             }
         }
         &__descriptionItem{
