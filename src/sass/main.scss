@@ -1797,9 +1797,12 @@ textarea {
     }
     &__filter{
         position: relative;
-        z-index: 1;
+        z-index: 4;
         align-items: flex-start;
         &Mobile{
+            display: none;
+        }
+        &--mobile{
             display: none;
         }
     }
@@ -2437,23 +2440,26 @@ textarea {
             box-sizing: border-box;
             border: 1px solid red;
         }
-        .owl-item:not(:first-of-type){
-            position: relative;
-            &::after{
-                content: '+';
-                font-size: 2rem;
-                font-family: serif;
-                position: absolute;
-                right: calc(100% - 1rem);
-                top: calc(50% - 3rem);
-                width: 4.375rem;
-                height: 4.375rem;
-                @extend .flexbox;
-                justify-content: center;
-                box-sizing: border-box;
-                border-radius: 50%;
-                border: 1px solid $border;
+        .owl-item{
+            &:not(:first-of-type){
+                position: relative;
+                &::after{
+                    content: '+';
+                    font-size: 2rem;
+                    font-family: serif;
+                    position: absolute;
+                    right: calc(100% - 1rem);
+                    top: calc(50% - 3rem);
+                    width: 4.375rem;
+                    height: 4.375rem;
+                    @extend .flexbox;
+                    justify-content: center;
+                    box-sizing: border-box;
+                    border-radius: 50%;
+                    border: 1px solid $border;
+                }
             }
+            opacity: 1 !important;
         }
         &__bar{
             @extend .flexbox;
@@ -2688,7 +2694,14 @@ textarea {
         }
     }
 }
-
+.favorites{
+    &__box{
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+}
 .notFound {
     padding: 6.7rem 0 3rem;
     &__box{

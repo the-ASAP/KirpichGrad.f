@@ -338,6 +338,7 @@
             flex-wrap: wrap;
         }
         &__gallery{
+            margin-top: 2rem;
             padding: 0;
             width: 100%;
         }
@@ -396,6 +397,7 @@
         &__info{
             padding: 1rem 0;
         }
+
     }
     .catalog {
 
@@ -675,6 +677,7 @@
         &__item {
             position: relative;
             flex-wrap: wrap;
+            padding-top: 10rem;
         }
 
         &__about {
@@ -707,7 +710,6 @@
             
             position: static;
             padding: 0;
-            padding-top: 10rem;
             width: 100%;
         }
 
@@ -885,6 +887,25 @@
         }
         &__submit{
             max-width: 100%;
+        }
+    }
+    .offers{
+        &-set{
+            &__box{
+                padding: 1rem;
+                padding-bottom: 2rem;
+            }
+            &__sale,
+            &__price{
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            &__val,
+            &__sale--val{
+                padding-left: 0;
+            }
         }
     }
 }

@@ -1862,11 +1862,15 @@ textarea::placeholder {
 
 .catalog__filter {
   position: relative;
-  z-index: 1;
+  z-index: 4;
   align-items: flex-start;
 }
 
 .catalog__filterMobile {
+  display: none;
+}
+
+.catalog__filter--mobile {
   display: none;
 }
 
@@ -2478,6 +2482,10 @@ textarea::placeholder {
   border: 1px solid red;
 }
 
+.offers-set .owl-item {
+  opacity: 1 !important;
+}
+
 .offers-set .owl-item:not(:first-of-type) {
   position: relative;
 }
@@ -2726,6 +2734,13 @@ textarea::placeholder {
   height: 100%;
   object-fit: cover;
   position: absolute;
+}
+
+.favorites__box {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .notFound {
@@ -3145,6 +3160,7 @@ textarea::placeholder {
   }
 
   .detail__gallery {
+    margin-top: 2rem;
     padding: 0;
     width: 100%;
   }
@@ -3493,6 +3509,7 @@ textarea::placeholder {
   .employee__item {
     position: relative;
     flex-wrap: wrap;
+    padding-top: 10rem;
   }
 
   .employee__about {
@@ -3525,7 +3542,6 @@ textarea::placeholder {
   .employee__content {
     position: static;
     padding: 0;
-    padding-top: 10rem;
     width: 100%;
   }
 
@@ -3720,6 +3736,24 @@ textarea::placeholder {
 
   .recall__submit {
     max-width: 100%;
+  }
+
+  .offers-set__box {
+    padding: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .offers-set__sale,
+  .offers-set__price {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .offers-set__val,
+  .offers-set__sale--val {
+    padding-left: 0;
   }
 }
 :root {
