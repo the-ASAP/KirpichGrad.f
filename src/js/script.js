@@ -157,10 +157,10 @@ const owlGallery = (selector, params) => {
                 dots: true,
                 lazyLoad: true,
                 nav: false,
-                margin: 10,
+                margin: 30,
                 smartSpeed: 1000,
             }));
-    })
+    }).trigger('refresh.owl.carousel');
 }
 
 
@@ -168,20 +168,20 @@ const owlGallery = (selector, params) => {
 const compareSlider = (selector) => {
     const owl = $(selector);
     owl.addClass('owl-carousel owl-theme')
-    .owlCarousel({
-        dots: false,
-        lazyLoad: true,
-        nav: false,
-        smartSpeed: 1000,
-        responsive: {
-            0: {
-                items: 1,
-            },
-            768: {
-                items: 3,
+        .owlCarousel({
+            dots: false,
+            lazyLoad: true,
+            nav: false,
+            smartSpeed: 1000,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                768: {
+                    items: 3,
+                }
             }
-        }
-    });
+        });
 }
 
 function detailOwls() {
@@ -253,30 +253,29 @@ function itemsCounter(parent, result) {
     }
 }
 
-function objectSlider() {
-    $('.object__gallery').on('initialized.owl.carousel changed.owl.carousel', function (e) {
-        if (!e.namespace) {
-            return;
-        }
-        var carousel = e.relatedTarget,
-            cur = '0' + (carousel.relative(carousel.current()) + 1),
-            length = '0' + carousel.items().length;
-        $('.object__itemCurrent').html(cur);
-        $('.object__itemLength').html(length);
-    }).owlCarousel({
-        items: 1,
-        margin: 10,
-        dots: false,
-        lazyLoad: true,
-        touchDrag: false,
-        mouseDrag: false,
-        animateOut: 'fadeOut',
-        animateIn: 'fadeIn',
-        smartSpeed: 1000,
-        thumbs: false,
-        navContainer: '.object__itemControls',
-        navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
-    });
+const counterOwlSlider = (selector, params, container) => {
+    if (params == undefined) params = ''
+    const owl = $(selector);
+    owl.addClass('owl-carousel owl-theme')
+        .on('initialized.owl.carousel changed.owl.carousel', function (e) {
+            if (!e.namespace) {
+                return;
+            }
+            var carousel = e.relatedTarget,
+                cur = '0' + (carousel.relative(carousel.current()) + 1),
+                length = '0' + carousel.items().length;
+            $(container).find('.owl-current').html(cur);
+            $(container).find('.owl-length').html(length);
+        })
+        .owlCarousel({
+            items: 1,
+            margin: 10,
+            lazyLoad: true,
+            animateIn: 'fadeIn',
+            smartSpeed: 1000,
+            thumbs: false,
+            navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
+        });
 }
 
 function hashTabs(buttons, windows) {
@@ -413,7 +412,6 @@ function toggleList(parent) {
         var input = $(this).siblings('input'),
             box = $(this).siblings('div'),
             item = box.find('div'),
-            btnH = $(this).height(),
             itemL = item.length,
             itemH = item.height();
         if (!$(this).hasClass(activeClass)) {
@@ -433,8 +431,6 @@ function toggleList(parent) {
             }
         });
     });
-
-
 }
 // Заменить на AJAX 
 function activeItemOnClick(parent) {
@@ -492,6 +488,13 @@ $().ready(function () {
     mainMenu('.aside__toggle', '.mainMenu');
     modalClose('.modal__close', '.modal');
     escClosing('.modal');
+    owlGallery('.goods__gallerySlider');
+    owlGallery('.catalog__itemGallery');
+    tips('.tips__item');
+    showMenu('.catalog__other', '.catalog__otherBtn');
+    toggleList('.catalog__select');
+    activeItemOnClick('.catalog__listHeader');
+    activeItemOnClick('.goods__nav');
     owls();
     owlSlider('.events__slider', {
         navContainer: '.events__controls'
@@ -502,20 +505,21 @@ $().ready(function () {
     owlItems('.offers-set__slider', {
         navContainer: '.offers-set__nav'
     });
-    owlGallery('.goods__gallerySlider');
-    owlGallery('.catalog__itemGallery');
-    tips('.tips__item');
-    showMenu('.catalog__other', '.catalog__otherBtn');
-    toggleList('.catalog__select');
-    activeItemOnClick('.catalog__listHeader');
-    activeItemOnClick('.goods__nav');
+    counterOwlSlider('.objects__itemSlider', {
+        navContainer: '.objects__itemControls',
+        dots: true
+    }, '.objects__itemCounter');
     if ($('.detail').length > '') {
         detailOwls();
         hashTabs('.detail__contentTabs', '.detail__contentWindows');
         itemsCounter('.offers-set__counter', '.priceResult')
     }
+
+
+
     if ($('.object').length > '') {
-        objectSlider();
+        owlGallery('.object__itemSlider')
+        // owlGallery('.object__itemSlider')
     }
     if ($('.contacts-page').length > '') {
         yandexMap();

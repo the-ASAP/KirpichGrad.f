@@ -45,7 +45,7 @@ ul {
 
 h1,
 h2 {
-    font-size: 5.3333rem; // 96px
+    font-size: 4.5rem; // 72px
     font-family: 'Forum';
     font-weight: normal;
     line-height: 87%;
@@ -535,6 +535,7 @@ textarea {
     width: auto;
     margin: 0 auto;
     object-fit: contain;
+    max-width: 100%;
 }
 
 .owl-carousel .owl-stage-outer {
@@ -993,7 +994,7 @@ textarea {
         background-color: $bgc;
     }
     &__title {
-        max-width: 50rem;
+        max-width: 50%;
         animation-duration: 1.5s;
     }
     &__header{
@@ -1788,7 +1789,6 @@ textarea {
     }
 
     &__box {
-        // z-index: -1;
         flex-wrap: wrap;
         margin-top: 3.3rem;
         align-items: flex-start;
@@ -2557,82 +2557,222 @@ textarea {
         padding: 1.6rem;
     }
 }
-
-.object {
+.share{
+    position: sticky;
+    left: 0;
+    height: 100%;
+    top: 3rem;
+    &__btn{
+        margin: 0 auto 1rem;
+        display: block;
+        &> svg{
+            display: block;
+            margin: 0 auto;
+            height: 1.5rem;
+        }
+    }
+}
+.objects {
     margin-top: 6.7rem;
 
     &__title {
         margin-bottom: 6.7rem;
     }
+    &__box{
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-    &__item {
-        align-items: flex-start;
-
-        &Content {
-            width: calc(45% - 3rem);
-            margin-right: 3rem;
-        }
-
-        &Col {
-            font-size: 0.7rem;
-            color: $sub;
-            width: 30%;
-
-            &-val {
-                color: $gen;
-                margin-left: 1rem;
-                padding-right: 1rem;
-                box-sizing: border-box;
-                width: calc(70% - 1rem);
-            }
-        }
-
-        &Row {
-            align-items: flex-start;
-            @extend .flexbox;
-            margin-bottom: 1.2rem;
-        }
-
-        &Title {
-            width: 100%;
-            margin-bottom: 2.8rem;
-        }
-
-        &Gallery {
-            width: 55%;
-        }
-
-        &Image {
-            width: 100% !important;
-            height: auto;
-        }
-
-        &Nav {
-            margin: 2.2rem 0 0 auto;
-            width: 55%;
-            justify-content: flex-end;
-        }
-
-        &Counter {
-            margin-right: 10%;
-        }
-
-        &Current {
-            font-size: 1.3rem;
-        }
-
-        &Length {
-            color: $sub;
-            font-size: 0.8rem;
-
-            &::before {
-                content: '/';
-                padding-right: .3rem;
+    &__tabs{
+        width: 12.5rem;
+        padding-right: 1rem;
+        box-sizing: border-box;
+        &Item{
+            display: block;
+            margin-bottom: 1.5rem;
+            &.active{
+                color: $el;
             }
         }
     }
-}
+    &__content{
+        width: calc(100% - 12.5rem);
+    }
+    &__item{
+        margin-bottom: 5rem;
+        position: relative;
+        
+        padding: 2.3rem 4.25rem;
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 93%;
+            height: 100%;
+            z-index: -1;
+            background-color: $bgc;
+        }
+        &Description{
+            padding-right: 2rem;
+            box-sizing: border-box;
+            width: 48%;
+        }
+        &Date{
+            display: block;
+            font-size: 0.75rem;
+            color: $sub;
+            margin-bottom: 1.25rem;
+        }
+        &Title{
+            margin-bottom: 0.725rem;
+        }
+        &Status{
+            font-size: 0.75rem;
+            color: $text;
+            margin-bottom: 1.875rem;   
+            display: block;
+        }
+        &Text{
+            font-size: 0.875rem;
+            display: block;
+            line-height: 1.6;
+            margin-bottom: 1.875rem;
+        }
+        &Link{
+            display: inline-block;
+            margin-bottom: 2.5rem;
+            @extend .button-small;
+        }
+        &Materials{
+            display: flex;
+            flex-wrap: wrap;
+            &Title{
+                font-size: 0.75rem;
+                color: $sub;
+                opacity: .55;
+                margin-bottom: 0.625rem;
+            }
+            &Item{
+                padding-right: 0.6875rem;
+                color: $sub;
+                font-size: 0.75rem;
+                line-height: 1.6;
+            }
+        }
 
+        &Gallery{
+            width: 52%;
+            position: absolute;
+            bottom: 2rem;
+            right: 0;
+        }
+
+        &Image{
+            width: 100% !important;
+            object-fit: cover !important;
+            max-height: 22rem;
+        }
+        &Counter{
+            color: $text;
+            z-index: 1;
+            position: absolute;
+            bottom: 5rem;
+            font-size: 1.5rem;
+            left: 1.875rem;
+            display: flex;
+            align-items: flex-end;
+            & .owl-current{
+                line-height: 1;
+            }
+            & .owl-length{
+                font-size: 1rem;
+                &::before{
+                    content: '/';
+                }
+            }
+        }
+    }
+
+    
+}
+.object{
+    &__box{
+        margin-top: 4.375rem;
+        display: flex;
+    }
+    &__content{
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    &__item{
+        
+        &Date,
+        &Status{
+            color: $sub;
+            font-size: 0.875rem;
+            display: inline-flex;
+            margin-right: 1.2rem;
+        }
+        &Slider{
+            margin-top: 2rem;
+            width: 100%;
+            max-height: 31.25rem;
+            & .owl-item{
+                opacity:  1 !important;
+                transition: none;
+            }
+            &  img{
+                
+                max-height: 31.25rem;
+                display: block;
+                width: 100% !important;
+                object-fit: cover !important;
+            }
+        }
+        &Text{
+            margin: 5rem auto 0;
+            // margin-top: 5rem;
+            width: 36rem;
+            max-width: 100%;
+            padding-bottom: 5.625rem;
+        }
+
+        
+    }
+    &__comments{
+        padding: 7.5rem 0;
+        &Item{
+            display: flex;
+            &:not(:first-of-type){
+                margin-top: 5rem;
+            }
+        }
+        &Header{
+            padding-right: 2rem;
+            box-sizing: border-box;
+            width: 50%;
+        }
+        &Subtitle{
+            display: block; 
+            margin-top: 1.25rem;
+            color: $sub;
+        }
+        &Content{
+            width: 50%;
+            &>p {
+                font-size: 0.875rem;
+                line-height: 1.6;
+            }
+        }
+    }
+    &__offer{
+        margin-top: 6.875rem;
+        &Title{
+            margin-bottom: 5rem;
+        }
+    }
+}
 .solution {
     margin-top: 6.7rem;
 
@@ -2771,6 +2911,9 @@ textarea {
     }
     &__tabs{
         align-items: center;
+        &--mobile{
+            display: none;
+        }
         &Item{
             font-size: .9rem;
             margin-right: 2.2rem;
@@ -2813,6 +2956,7 @@ textarea {
         bottom: 0;
         left: 0;
         width: 100%;
+        letter-spacing: 0.08em;
         height: 5rem;
         text-align: center;
         background-color: $text;

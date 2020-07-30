@@ -409,8 +409,11 @@
                 z-index: 2;
                 background-color: #ffffff;
                 width: 100%;
+                display: flex
             }
             &Mobile{
+                z-index: 2;
+                position: relative;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
@@ -425,8 +428,7 @@
                 z-index: initial;
             }
             &Option{
-                background-color: red;
-                border-right: 1px solid $text;
+                // border-right: 1px solid $text;
             }
          }
         &__filtersBtn,
@@ -451,9 +453,10 @@
         &__orderBtn{
             display: block;
             height: 5rem;
-            position: absolute;
-            bottom: 0;
-            left: 0;
+            margin-top: 1rem;
+            // position: absolute;
+            // bottom: 0;
+            // left: 0;
             width: 100%;
             color: #ffffff;
             background-color: $el;
@@ -919,4 +922,103 @@
             }
         }
     }
+    .compare{
+        &__header{
+            z-index: 2;
+            position: relative;
+        }
+        &__resetBtn{
+            width: 50%;
+            border: 1px solid $text;
+            height: 2.875rem;
+            box-sizing: border-box;
+            justify-content: center;
+        }
+        &__tabs{
+            display: none;
+            &--mobile{
+                border-right: 0;
+                height: 2.875rem;
+                width: 50%;
+                display: block;
+                margin-bottom: 0;
+            }
+        }
+        &__col{
+            padding-top: 10rem;
+            width: 40%;
+        }
+        &__row{
+            font-size: 0.75rem;
+        }
+        &__items{
+            width: 60%;
+        }
+        &__item{
+            &Image{
+                min-height: 10rem;
+                height: 10rem;
+            }
+        }
+    }
+    .objects{
+        &__item{
+            background-color: #fff;
+            flex-wrap: wrap;
+            display: flex;
+            margin-bottom: 1rem; 
+            &Description{
+                width: 100%;
+            }
+            &Gallery{
+                position: static;
+                order: -1;
+                // margin-left: -15px;
+                // width: calc(100% + 30px)
+                width: 100%;
+            }
+        }
+    }
+    .object{
+        &__box{
+            flex-wrap: wrap;
+            position: relative;
+        }
+        &__tabs{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            &Item{
+
+                display: inline-flex;
+                margin-right: 2rem;
+            }
+        }
+        &__content{
+            max-width: 100%;
+        }
+        &__item{
+            padding-left: 0;
+            padding-right: 0;
+            &::before{
+                width: 100%;
+            }
+        }
+    }
+    .share{
+        z-index: 2;
+        position: absolute;
+        right: 15px;
+        top: 4rem;
+        left: auto;
+        width: auto;
+        height: 100%;
+        &__box{
+            position: sticky;
+            top: 5rem;
+            right: 0;
+        }
+    }
+    
 }
