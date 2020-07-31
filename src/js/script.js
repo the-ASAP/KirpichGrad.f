@@ -88,19 +88,26 @@ function owls() {
             $('.showroom__sliderOption-size').text(item.attr('data-size'));
             $('.showroom__sliderOption-price').text(item.attr('data-price'))
         })
-
-    // $('.offers__slider').owlCarousel({
-    //     margin: 40,
-    //     items: 3,
-    //     dots: false,
-    //     nav: true,
-    //     navContainer: '.offers__nav',
-    //     navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
-    //     lazyLoad: true,
-    //     thumbs: false,
-    //     smartSpeed: 1000,
-    // }); 
-
+        const cert = $('.cert__slider')
+        cert
+        .addClass('owl-carousel owl-theme')
+        .owlCarousel({
+                nav: true,
+                navContainer: ('.cert__nav'),
+                navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
+                dots: false,
+                touchDrag: false,
+                mouseDrag: false,
+                smartSpeed: 1000,
+                lazyLoad: true,
+                margin: 10,
+                items: 1
+            })
+            .on('change.owl.carousel initialize.owl.carousel', (e) => {
+                let item = $('.cert__slider').find('.owl-item.active').eq(0).find('img');
+                $('.cert__description').hide().fadeIn(500)
+                $('.cert__description').text(item.attr('data-content'));
+            })
 }
 
 const owlSlider = (selector, params) => {
@@ -126,25 +133,15 @@ const owlItems = (selector, params, ) => {
     if (params == undefined) params = ''
     const owl = $(selector);
     owl
-        .addClass('owl-carousel owl-theme')
-        .owlCarousel(Object.assign(params, {
-            dots: false,
-            nav: true,
-            navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
-            lazyLoad: true,
-            thumbs: false,
-            smartSpeed: 1000,
-            responsive: {
-                0: {
-                    items: 1,
-                    margin: 10,
-                },
-                768: {
-                    items: 3,
-                    margin: 40,
-                }
-            }
-        }));
+    .addClass('owl-carousel owl-theme')
+    .owlCarousel(Object.assign(params, {
+        dots: false,
+        nav: true,
+        navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
+        lazyLoad: true,
+        thumbs: false,
+        smartSpeed: 1000,
+    }));
 }
 
 const owlGallery = (selector, params) => {
@@ -500,10 +497,30 @@ $().ready(function () {
         navContainer: '.events__controls'
     })
     owlItems('.offers__slider', {
-        navContainer: '.offers__nav'
+        navContainer: '.offers__nav',
+        responsive: {
+            0: {
+                items: 1,
+                margin: 10,
+            },
+            768: {
+                items: 3,
+                margin: 40,
+            }
+        }
     });
     owlItems('.offers-set__slider', {
-        navContainer: '.offers-set__nav'
+        navContainer: '.offers-set__nav',
+        responsive: {
+            0: {
+                items: 1,
+                margin: 10,
+            },
+            768: {
+                items: 3,
+                margin: 40,
+            }
+        }
     });
     counterOwlSlider('.objects__itemSlider', {
         navContainer: '.objects__itemControls',
@@ -514,7 +531,6 @@ $().ready(function () {
         hashTabs('.detail__contentTabs', '.detail__contentWindows');
         itemsCounter('.offers-set__counter', '.priceResult')
     }
-
 
 
     if ($('.object').length > '') {
@@ -534,6 +550,27 @@ $().ready(function () {
     if ($('.compare').length > '') {
         compareSlider('.compare__items');
     }
+
+    owlItems('.about__instSlider', { responsive: {
+        0: {
+            items: 1,
+            margin: 10,
+        },
+        768: {
+            items: 4,
+            margin: 40,
+        }
+    }, navContainer: '.about__instControls'});
+    // owlItems('.cert__slider', { responsive: {
+    //     0: {
+    //         items: 1,
+    //         margin: 10,
+    //     },
+    //     768: {
+    //         items: 3,
+    //         margin: 40,
+    //     }
+    // }, navContainer: '.cert__nav'})
     if (sessionStorage.getItem('loaded') == null) {
         animationInit()
         $('.preloader').fadeOut(300, () => {

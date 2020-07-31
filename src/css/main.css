@@ -39,7 +39,7 @@
 }
 
 html {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .scrollbar::-webkit-scrollbar,
@@ -553,7 +553,7 @@ textarea::placeholder {
 .category__arrow,
 .catalog__more {
   display: block;
-  padding: 1.875rem;
+  padding: 1.475rem;
   border: 1px solid var(--text);
   box-sizing: border-box;
   border-radius: 50%;
@@ -2684,6 +2684,7 @@ textarea::placeholder {
 
 .objects__tabsItem {
   display: block;
+  color: var(--text);
   margin-bottom: 1.5rem;
 }
 
@@ -3135,6 +3136,203 @@ textarea::placeholder {
   object-fit: contain;
   padding: 2.25rem;
   box-sizing: border-box;
+}
+
+.about__title {
+  margin-top: 6.25rem;
+  margin-bottom: 4.375rem;
+}
+
+.about__subTitle {
+  display: block;
+  color: var(--subText);
+  width: 24rem;
+  max-width: 100%;
+  margin-bottom: 4rem;
+}
+
+.about__subTitle--year {
+  color: var(--gen);
+}
+
+.about__inst {
+  padding-bottom: 8.625rem;
+  position: relative;
+}
+
+.about__inst::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 80%;
+  width: 100%;
+  background-color: var(--bg-color);
+  z-index: -1;
+}
+
+.about__instName {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+}
+
+.about__instText {
+  margin-top: 0.5rem;
+  color: var(--text);
+  font-size: 0.75rem;
+}
+
+.about__instNav {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about__instControls {
+  justify-content: flex-end;
+  display: flex;
+}
+
+.about__instBtn {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.75rem;
+  width: 50%;
+  display: flex;
+  background-color: var(--el);
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--el);
+  box-sizing: border-box;
+}
+
+.about__instBtnText {
+  margin-left: 0.6rem;
+}
+
+.about__instBtn:hover {
+  background-color: #ffffff;
+  color: var(--el);
+}
+
+.about__instBtn:hover > svg path {
+  fill: var(--el);
+}
+
+.about__instSubscribe {
+  display: flex;
+  width: 50%;
+  color: var(--subText);
+}
+
+.about__instSubscribeText {
+  width: 50%;
+  padding-right: 2rem;
+  box-sizing: border-box;
+}
+
+.team {
+  margin-bottom: 3rem;
+}
+
+.team__title {
+  margin-top: 12.5rem;
+  text-align: center;
+  margin-bottom: 13.625rem;
+}
+
+.team__item {
+  width: 55rem;
+  max-width: 100%;
+  display: flex;
+  margin-bottom: 8.125rem;
+}
+
+.team__item:nth-child(2n) {
+  margin-left: auto;
+}
+
+.team__name {
+  margin-bottom: 3.125rem;
+}
+
+.team__status {
+  display: block;
+  color: var(--subText);
+  font-size: 0.875rem;
+  margin-bottom: 2.5rem;
+}
+
+.team__exp {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.team__links {
+  margin-bottom: 2.8rem;
+}
+
+.team__linksItem {
+  margin-bottom: 0.3rem;
+}
+
+.team__contact {
+  color: var(--gen);
+  margin-bottom: 1.625rem;
+  display: block;
+}
+
+.team__contact:hover {
+  color: var(--el);
+}
+
+.team__image {
+  display: block;
+  height: 35rem;
+  object-fit: cover;
+  width: 50%;
+}
+
+.team__content {
+  padding-left: 2.5rem;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.cert__box {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cert__slider {
+  width: calc(55rem / 3);
+  max-width: 100%;
+}
+
+.cert__slider .owl-stage-outer {
+  overflow: visible !important;
+}
+
+.cert__slider .owl-item {
+  opacity: 1;
+}
+
+.cert__description {
+  font-size: 1.5rem;
+  width: 22.5rem;
+  max-width: 100%;
+  height: 9rem;
+  margin-bottom: 1.25rem;
+}
+
+.cert__nav {
+  display: flex;
+  margin-top: 3.125rem;
+  justify-content: flex-end;
 }
 
 .notFound {
@@ -4202,11 +4400,29 @@ textarea::placeholder {
     height: 10rem;
   }
 
+  .objects__box {
+    flex-wrap: wrap;
+  }
+
+  .objects__tabs {
+    width: 100%;
+    display: flex;
+  }
+
+  .objects__tabsItem {
+    margin-right: 2rem;
+  }
+
+  .objects__content {
+    width: 100%;
+  }
+
   .objects__item {
+    padding: 0;
     background-color: #fff;
     flex-wrap: wrap;
     display: flex;
-    margin-bottom: 1rem;
+    margin-bottom: 5rem;
   }
 
   .objects__itemDescription {
@@ -4246,6 +4462,19 @@ textarea::placeholder {
   }
 
   .object__item::before {
+    width: 100%;
+  }
+
+  .object__commentsItem {
+    flex-wrap: wrap;
+  }
+
+  .object__commentsHeader {
+    width: 100%;
+    margin-bottom: 1.875rem;
+  }
+
+  .object__commentsContent {
     width: 100%;
   }
 

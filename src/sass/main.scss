@@ -7,7 +7,7 @@
 }
 
 html {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -454,7 +454,7 @@ textarea {
     }
     &-arrow{
         display: block;
-        padding: 1.875rem;
+        padding: 1.475rem;
         border: 1px solid $text;
         box-sizing: border-box;
         border-radius: 50%;
@@ -2589,6 +2589,7 @@ textarea {
         box-sizing: border-box;
         &Item{
             display: block;
+            color: $text;
             margin-bottom: 1.5rem;
             &.active{
                 color: $el;
@@ -3006,6 +3007,179 @@ textarea {
         }
     }
 
+}
+.about{
+    &__title{
+        margin-top: 6.25rem;
+        margin-bottom: 4.375rem;
+    }
+    &__subTitle{
+        display: block;
+        color:$sub;
+        width: 24rem;
+        max-width: 100%;
+        margin-bottom: 4rem;
+        &--year{
+            color: $gen;
+        }
+    }
+    &__inst{
+        padding-bottom: 8.625rem;
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 80%;
+            width: 100%;
+            background-color: $bgc;
+            z-index: -1;
+        }
+        &Name{
+            margin-top: 2rem;
+            font-size: 0.75rem;
+
+        }
+        &Text{
+            margin-top: 0.5rem;
+            color: $text;
+            font-size: 0.75rem;
+        }
+        &Nav{
+            margin-top: 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &Controls{
+            justify-content: flex-end;
+            display: flex;
+        }
+        &Btn{
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 500;
+            font-size: 0.75rem;
+            width: 50%;
+            display: flex;
+            background-color: $el;
+            color: #ffffff;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid $el;
+            box-sizing: border-box;
+            &Text{
+                margin-left: 0.6rem;
+            }
+            &:hover{
+                background-color: #ffffff;
+                color: $el;
+                & > svg path{
+                    fill: $el;
+                }
+            }
+        }
+        &Subscribe{
+            
+            display: flex;
+            width: 50%;
+            color: $sub;
+            &Text{
+                width: 50%;
+                padding-right: 2rem;
+                box-sizing: border-box;
+            }
+        }
+    }
+}
+.team{
+    margin-bottom: 3rem;
+    &__title{
+        margin-top: 12.5rem;
+        text-align: center;
+        margin-bottom: 13.625rem;
+    }
+    &__item{
+        width: 55rem;
+        max-width: 100%;
+        display: flex;
+        margin-bottom: 8.125rem;
+        &:nth-child(2n){
+            margin-left: auto;
+        }
+    }
+    &__name{
+        margin-bottom: 3.125rem;
+    }
+    &__status{
+        display: block;
+        color: $sub;
+        font-size: 0.875rem;    
+        margin-bottom: 2.5rem;
+    }
+    &__exp{
+        display: block;
+        margin-bottom: 1.25rem;
+    }
+    &__links{
+        margin-bottom: 2.8rem;
+        &Item{
+            margin-bottom: 0.3rem;
+        }
+    }
+    &__contact{
+        color: $gen;
+        margin-bottom: 1.625rem;
+        display: block;
+        &:hover{
+            color: $el;
+        }
+    }
+    &__image{
+        display: block;
+        height: 35rem;
+        object-fit: cover;
+        width: 50%;
+    }
+    &__content{
+        padding-left: 2.5rem;
+        box-sizing: border-box;
+        width: 50%;
+    }
+}
+.cert{
+    &__box{
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__gallery{
+
+    }
+    &__slider{
+        width: calc(55rem / 3);
+        max-width: 100%;
+        & .owl-stage-outer{
+            overflow: visible !important;
+        }
+        & .owl-item{
+            opacity: 1;
+        }
+    }
+    &__description{
+        font-size: 1.5rem;
+        width: 22.5rem;
+        max-width: 100%;
+        height: 9rem;
+        margin-bottom: 1.25rem;
+    }
+    &__nav{
+        display: flex;
+        margin-top: 3.125rem;
+        justify-content: flex-end;
+    }
+    
 }
 .notFound {
     padding: 6.7rem 0 3rem;
