@@ -96,8 +96,6 @@ function owls() {
                 navContainer: ('.cert__nav'),
                 navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
                 dots: false,
-                touchDrag: false,
-                mouseDrag: false,
                 smartSpeed: 1000,
                 lazyLoad: true,
                 margin: 10,
@@ -323,13 +321,12 @@ function hashTabs(buttons, windows) {
     });
 }
 
-function youTubeInit() {
-    $('.events__videoBtn').on('click', function () {
+function youTubeInit(button, frame) {
+    $(button).on('click', function () {
         let src = $(this).attr('data-video');
-        $(this).after(`<iframe class="events__videoFrame" src="${src}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`).remove();
+        $(this).after(`<iframe class="${frame}" src="${src}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`).remove();
     });
 }
-
 function tips(item) {
     var item = $(item),
         btn = item.find('button');
@@ -492,10 +489,13 @@ $().ready(function () {
     toggleList('.catalog__select');
     activeItemOnClick('.catalog__listHeader');
     activeItemOnClick('.goods__nav');
+    youTubeInit('.events__videoBtn', 'events__videoFrame');
+    counterOwlSlider('.events__slider', {
+        navContainer: '.events__controls',
+        dots: true
+    }, '.events__counters');
+    youTubeInit('.object__itemVideoBtn', 'object__itemVideo')
     owls();
-    owlSlider('.events__slider', {
-        navContainer: '.events__controls'
-    })
     owlItems('.offers__slider', {
         navContainer: '.offers__nav',
         responsive: {

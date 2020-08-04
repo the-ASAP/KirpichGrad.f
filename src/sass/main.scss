@@ -95,7 +95,7 @@ h5 {
 }
 
 .wrap {
-    width: 77.5rem;
+    width: calc(100% - 30px);
     margin: 0 auto;
     max-width: 1240px;
 }
@@ -105,7 +105,9 @@ a {
     color: $el;
     text-decoration: none;
 }
-
+p{
+    line-height: 1.6;
+}
 svg {
     height: 1rem;
     display: block;
@@ -160,7 +162,36 @@ textarea {
         color: $el;
     }
 }
+%video{
+    & > iframe {
+        width: 100%;
+        height: 100%;
+    }
 
+    & > button[type="button"]{
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &::after{
+            content: '';
+            border-top: 60px solid transparent;
+            border-bottom: 60px solid transparent;
+            border-left: 120px solid #ffffff;
+            border-right: 0 solid transparent;
+            transition: transform .3s;
+        }
+        &:hover::after{
+            transform: scale(1.1);
+        }
+    }
+}
 %field {
     position: relative;
     & > input{
@@ -922,7 +953,7 @@ textarea {
     }
 
     &__item { 
-        font-size: 0.7rem;
+        font-size: 0.75rem;
         font-weight: 500;
         letter-spacing: 0.06em;
         text-transform: uppercase;
@@ -1299,7 +1330,6 @@ textarea {
     }
 
     &__nav {
-
         width: 25%;
         z-index: 1;
     }
@@ -1331,28 +1361,20 @@ textarea {
 
         &-total {
             color: $text;
+            &::before{
+                content: '/';
+            }
         }
     }
 
     &__video {
         &Box {
             height: 30rem;
-            // max-width: 51rem;
             margin: 0 0 0 auto;
+            @extend %video;
         }
 
-        &Frame {
-            width: 100%;
-            height: 100%;
-        }
-
-        &Btn {
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center center;
-        }
+        
     }
 
     &__content {
@@ -2702,12 +2724,21 @@ textarea {
         margin-top: 4.375rem;
         display: flex;
     }
+    &__title{
+        margin: 3.75rem 0 4.375rem;
+    }
     &__content{
         max-width: 90%;
+        width: 57.5rem;
         margin: 0 auto;
     }
     &__item{
-        
+        &Description{
+            &--news{
+                border-bottom: 1px solid $border;
+                margin-bottom: 4.875rem;
+            }
+        }
         &Date,
         &Status{
             color: $sub;
@@ -2730,6 +2761,12 @@ textarea {
                 width: 100% !important;
                 object-fit: cover !important;
             }
+        }
+        &Video{
+            height: 27.5rem;
+            padding-bottom: 3.625rem;
+            @extend %video;
+
         }
         &Text{
             margin: 5rem auto 0;
@@ -3180,6 +3217,143 @@ textarea {
         justify-content: flex-end;
     }
     
+}
+.news{
+    &__title{
+        margin-top: 6.75rem;
+        margin-bottom: 5rem;
+    }
+    &__box{
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap ;
+    }
+    &__tabs{
+        position: sticky;
+        top: 4rem;
+        right: 0;
+        height: 100%;
+        width: 8.125rem;
+        &Item{
+            color: $text;
+            display: block;
+            margin-bottom: 1.5rem;
+            &:hover{
+                color: $el;
+            }
+            &.active{
+                color: $el;
+            }
+        }
+    }
+    &__content{
+        order: -1;
+    }
+    &__item{
+        margin-bottom: 4.125rem;
+        display: flex;
+        width: 61.25rem;
+        max-width: 90%;
+        position: relative;
+        &Image{
+            z-index: 1;
+            position: absolute;
+            width: 31.875rem;
+            max-width: 50%;
+        }
+        &Description{
+            margin-top: 2.125rem;         
+            width: calc(100% - 2.125rem);
+            margin-left: auto;
+            box-sizing: border-box;
+            background-color: $bgc;
+            padding: 2.25rem 1.875rem 3.375rem calc(50% + 2rem);
+            
+        }
+        &Header{
+            animation-delay: .3s;
+            display: flex;
+            justify-content: flex-end;
+            color: $sub;
+            font-size: 0.75rem;
+            padding-right: 2.4rem;
+            box-sizing: border-box;
+            margin-bottom: 1.875rem;
+        }
+        &Type{
+            margin-left: 1.25rem;
+        }
+        &Title{
+            margin-bottom: 1.25rem;
+            animation-delay: .4s;
+        }
+        &Text{
+            font-size: 0.875rem;
+            animation-delay: .6s;
+        }
+        &Link{
+            animation-delay: .8s;
+            display: inline-block;
+            margin-top: 2.5rem;
+            @extend .button-small;
+        }
+    }
+    &__offer{
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        width: 100%;
+        height: 30rem;
+        border-top: 1px solid $border;
+        background: url(../img/event.jpg) center center no-repeat;
+        background-size: cover;
+        color: #ffffff;
+        position: relative;
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+            opacity: .6;
+            transition: opacity .3s;
+            background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+        }
+        &:hover::after{
+            opacity: .8;    
+        }
+        &Content{
+            z-index: 1;
+            position: relative;
+            padding: 2.1rem 1.875rem;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        &Link{
+            display: block;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+        &Title{
+            text-align: center;
+            width: 33.125rem;
+            max-width: 90%;
+            color: #ffffff;
+            margin: 0 auto;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        &Info{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+        }
+    }
 }
 .notFound {
     padding: 6.7rem 0 3rem;
