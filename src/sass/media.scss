@@ -953,10 +953,11 @@
     }
 }
 
-@media (max-width: 768px) { 
-    html{
+@media (max-width: 768px) {
+    html {
         font-size: 16px;
     }
+
     .showroom {
         margin-bottom: 5rem;
     }
@@ -1142,10 +1143,12 @@
             &::before {
                 width: 100%;
             }
-            &Text{
+
+            &Text {
                 margin-top: 2rem;
                 padding-bottom: 3rem;
             }
+
             &Video {
                 height: 10.625rem;
                 padding-bottom: 1rem;
@@ -1335,14 +1338,34 @@
             height: 14.375rem;
             width: 100%;
             position: relative;
-            &Link{
+
+            &Link {
                 font-size: 0.875rem;
                 margin-bottom: 0.6rem;
             }
+
             &Content {
                 padding-bottom: 1.25rem;
             }
 
+        }
+    }
+
+    .solution {
+        &__item {
+            flex-wrap: wrap;
+
+            &Description {
+                min-height: 0;
+                padding: 0;
+                width: 100%;
+            }
+
+            &Image {
+                position: static;
+                width: 100%;
+                margin-top: 2.5rem;
+            }
         }
     }
 }
