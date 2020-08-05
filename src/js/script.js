@@ -75,7 +75,6 @@ function owls() {
             items: 1,
             touchDrag: false,
             mouseDrag: false,
-            animateOut: 'fadeOut',
             animateIn: 'fadeIn',
             smartSpeed: 1000,
             lazyLoad: true,
@@ -120,7 +119,6 @@ const owlSlider = (selector, params) => {
             items: 1,
             touchDrag: false,
             mouseDrag: false,
-            animateOut: 'fadeOut',
             animateIn: 'fadeIn',
             smartSpeed: 1000,
             margin: 10
@@ -157,8 +155,6 @@ const owlGallery = (selector, params) => {
             }));
     }).trigger('refresh.owl.carousel');
 }
-
-
 
 const compareSlider = (selector) => {
     const owl = $(selector);
@@ -371,19 +367,19 @@ function showMenu(menu, btn) {
     });
 }
 
-function yandexMap() {
+function yandexMap(coords, content) {
     if ($("#map").length > 0) {
         ymaps.ready(function () {
             var myMap = new ymaps.Map("map", {
-                center: [51.869051532878736, 44.99647525936559],
+                center: coords,
                 zoom: 17,
                 "multiTouch": false,
                 controls: ['zoomControl']
             }, {
                 suppressMapOpenBlock: true
             });
-            var myPlacemark = new ymaps.Placemark([51.86911130776214, 44.996507445873775], {
-                hintContent: 'Россия, Саратовская область, Аткарск, улица Гагарина, 91'
+            var myPlacemark = new ymaps.Placemark(coords, {
+                hintContent: content
             });
             myMap.geoObjects.add(myPlacemark);
             myMap.controls.remove('routeEditor');
@@ -532,13 +528,12 @@ $().ready(function () {
         itemsCounter('.offers-set__counter', '.priceResult')
     }
 
-
     if ($('.object').length > '') {
         owlGallery('.object__itemSlider')
         // owlGallery('.object__itemSlider')
     }
     if ($('.contacts-page').length > '') {
-        yandexMap();
+        yandexMap([51.51706504131899,46.015190864417974], 'Саратов, ул.Чернышевского 94 А');
     }
     if ($('.category').length > '') {
         owlGallery('.category__itemGallery')
@@ -578,15 +573,15 @@ $().ready(function () {
         })
         sessionStorage.setItem('loaded', true);
     } else {
-        // $('.animation').removeClass('slideDown slideUp slideLeft slideRight')
-        // $('.preloader').remove();
+        $('.animation').removeClass('slideDown slideUp slideLeft slideRight')
+        $('.preloader').remove();
 
         // после тестов удилить нижнее и раскоментить но это не точно
-        $('.preloader').fadeOut(300, () => {
-            $('.preloader').remove()
-        })
-        animationInit()
-        sessionStorage.setItem('loaded', true);
+        // $('.preloader').fadeOut(300, () => {
+        //     $('.preloader').remove()
+        // })
+        // animationInit()
+        // sessionStorage.setItem('loaded', true);
     }
 
 });

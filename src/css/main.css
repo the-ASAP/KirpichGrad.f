@@ -1247,6 +1247,7 @@ textarea::placeholder {
 
 .showroom__sliderOption {
   max-width: 5.5556rem;
+  height: 2.125rem;
   text-align: left;
   display: block;
   font-size: 0.7778rem;
