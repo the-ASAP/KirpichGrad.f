@@ -512,38 +512,6 @@ textarea {
         }
     }
 }
-.modal {
-    display: none;
-    background-color: #E5E5E5;
-    z-index: 4;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    max-width: 90%;
-    height: 90%;
-    max-height: 90%;
-    &__box {
-        padding: 2rem;
-        height: 100%;
-        width: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        @extend .scrollbar;
-    }
-
-    &__close {
-        @extend .close-btn;
-    }
-}
-.preview{
-    // display: block;
-    top: calc(50% - 23rem);
-    height: 46rem;
-}
 
 .tabs {
     &-btn {
@@ -738,6 +706,108 @@ textarea {
                 opacity: 1;
             }
         }
+    }
+}
+.modal {
+    display: none;
+    background-color: #E5E5E5;
+    z-index: 4;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    max-width: 90%;
+    height: 90%;
+    max-height: 90%;
+    &__box {
+        padding: 2rem;
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        @extend .scrollbar;
+        box-sizing: border-box;
+    }
+
+    &__close {
+        @extend .close-btn;
+    }
+}
+.preview{
+    // display: block;
+    top: calc(50% - 23rem);
+    height: 46rem;
+}
+.orderModal{
+    &__tabs{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid $el;
+        &Item{
+            width: 45%;
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+    }
+    &__title{
+        text-align: center;
+    }
+    &__list{
+        margin-bottom: 3.75rem;
+    }
+    &__windows{
+        &Item{
+            display: none;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility opacity;
+            &.visible{
+                visibility: visible;
+                opacity: 1;
+            }
+            &.active{
+                display: block;
+            }
+        }
+    }
+    &__item{
+        padding: 1.625rem 0;
+        border-bottom: 1px solid $border;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        padding-right: 3rem;
+
+        &Image{
+            background-color: red;
+            height: 6rem;
+            width: 6rem;
+            object-fit: contain;
+        }
+        &Remove{
+            @extend .close-btn;
+            right: 0;
+            top: calc(50% - 1.5rem);
+        }
+    }
+    &__submit{
+        @extend .button;
+        background-color: $el;
+        color: #ffffff;
+        &:hover{
+            background-color: #ffffff;
+            color: $el; 
+        }
+    }
+    &__field{
+        @extend %field;
+        margin-bottom: 2rem;
     }
 }
 .logo {

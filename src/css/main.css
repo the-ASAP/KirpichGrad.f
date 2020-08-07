@@ -121,6 +121,7 @@ h5 {
 .offers-set__counter,
 .owl-thumbs,
 .button,
+.orderModal__submit,
 .catalog__otherFilterApply,
 .recall__submit,
 .detail__submit,
@@ -148,11 +149,13 @@ button,
 input,
 .close-btn::after,
 .modal__close::after,
+.orderModal__itemRemove::after,
 .favorites__removeBtn::after,
 .compare__resetIcon::after,
 .compare__itemRemove::after,
 .close-btn::before,
 .modal__close::before,
+.orderModal__itemRemove::before,
 .favorites__removeBtn::before,
 .compare__resetIcon::before,
 .compare__itemRemove::before {
@@ -268,10 +271,12 @@ textarea::placeholder {
   transform: scale(1.1);
 }
 
+.orderModal__field,
 .recall__field {
   position: relative;
 }
 
+.orderModal__field > input,
 .recall__field > input {
   border-radius: 0;
   box-sizing: border-box;
@@ -283,26 +288,31 @@ textarea::placeholder {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
+.orderModal__field > input:not([value=""]),
 .recall__field > input:not([value=""]) {
   border-color: var(--el);
 }
 
+.orderModal__field > input:not([value=""]) ~ label:not(.error),
 .recall__field > input:not([value=""]) ~ label:not(.error) {
   top: -.4rem;
   left: 0.625rem;
   font-size: .8rem;
 }
 
+.orderModal__field > input:focus,
 .recall__field > input:focus {
   border-color: var(--el);
 }
 
+.orderModal__field > input:focus ~ label:not(.error),
 .recall__field > input:focus ~ label:not(.error) {
   top: -.4rem;
   left: 0.625rem;
   font-size: .8rem;
 }
 
+.orderModal__field > input ~ label:not(.error),
 .recall__field > input ~ label:not(.error) {
   color: var(--subText);
   left: 0;
@@ -314,6 +324,7 @@ textarea::placeholder {
   transition: left .3s, top .3s, font-size .3s;
 }
 
+.orderModal__field > textarea:empty,
 .recall__field > textarea:empty {
   font-size: 1rem;
   bottom: calc(50% - .5rem);
@@ -488,6 +499,7 @@ textarea::placeholder {
 
 .close-btn,
 .modal__close,
+.orderModal__itemRemove,
 .favorites__removeBtn,
 .compare__resetIcon,
 .compare__itemRemove {
@@ -500,11 +512,13 @@ textarea::placeholder {
 
 .close-btn::after,
 .modal__close::after,
+.orderModal__itemRemove::after,
 .favorites__removeBtn::after,
 .compare__resetIcon::after,
 .compare__itemRemove::after,
 .close-btn::before,
 .modal__close::before,
+.orderModal__itemRemove::before,
 .favorites__removeBtn::before,
 .compare__resetIcon::before,
 .compare__itemRemove::before {
@@ -519,6 +533,7 @@ textarea::placeholder {
 
 .close-btn::after,
 .modal__close::after,
+.orderModal__itemRemove::after,
 .favorites__removeBtn::after,
 .compare__resetIcon::after,
 .compare__itemRemove::after {
@@ -527,6 +542,7 @@ textarea::placeholder {
 
 .close-btn::before,
 .modal__close::before,
+.orderModal__itemRemove::before,
 .favorites__removeBtn::before,
 .compare__resetIcon::before,
 .compare__itemRemove::before {
@@ -535,11 +551,13 @@ textarea::placeholder {
 
 .close-btn:hover::after,
 .modal__close:hover::after,
+.orderModal__itemRemove:hover::after,
 .favorites__removeBtn:hover::after,
 .compare__resetIcon:hover::after,
 .compare__itemRemove:hover::after,
 .close-btn:hover::before,
 .modal__close:hover::before,
+.orderModal__itemRemove:hover::before,
 .favorites__removeBtn:hover::before,
 .compare__resetIcon:hover::before,
 .compare__itemRemove:hover::before {
@@ -548,6 +566,7 @@ textarea::placeholder {
 
 .close-btn:hover,
 .modal__close:hover,
+.orderModal__itemRemove:hover,
 .favorites__removeBtn:hover,
 .compare__resetIcon:hover,
 .compare__itemRemove:hover {
@@ -633,35 +652,6 @@ textarea::placeholder {
 .disabled.catalog__more {
   cursor: default;
   opacity: .4;
-}
-
-.modal {
-  display: none;
-  background-color: #E5E5E5;
-  z-index: 4;
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 5%;
-  left: 5%;
-  width: 90%;
-  max-width: 90%;
-  height: 90%;
-  max-height: 90%;
-}
-
-.modal__box {
-  padding: 2rem;
-  height: 100%;
-  width: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-.preview {
-  top: calc(50% - 23rem);
-  height: 46rem;
 }
 
 .tabs-btn > button.active,
@@ -812,6 +802,7 @@ textarea::placeholder {
 }
 
 .button,
+.orderModal__submit,
 .catalog__otherFilterApply,
 .recall__submit,
 .detail__submit,
@@ -831,12 +822,14 @@ textarea::placeholder {
 }
 
 .button:hover,
+.orderModal__submit:hover,
 .catalog__otherFilterApply:hover,
 .recall__submit:hover,
 .detail__submit:hover,
 .solution__itemLink:hover,
 .notFound__btn:hover,
 .button:active,
+.orderModal__submit:active,
 .catalog__otherFilterApply:active,
 .recall__submit:active,
 .detail__submit:active,
@@ -904,6 +897,110 @@ textarea::placeholder {
 .news__itemLink:hover::before {
   width: 100%;
   opacity: 1;
+}
+
+.modal {
+  display: none;
+  background-color: #E5E5E5;
+  z-index: 4;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  max-width: 90%;
+  height: 90%;
+  max-height: 90%;
+}
+
+.modal__box {
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.preview {
+  top: calc(50% - 23rem);
+  height: 46rem;
+}
+
+.orderModal__tabs {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--el);
+}
+
+.orderModal__tabsItem {
+  width: 45%;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.orderModal__title {
+  text-align: center;
+}
+
+.orderModal__list {
+  margin-bottom: 3.75rem;
+}
+
+.orderModal__windowsItem {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility opacity;
+}
+
+.orderModal__windowsItem.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.orderModal__windowsItem.active {
+  display: block;
+}
+
+.orderModal__item {
+  padding: 1.625rem 0;
+  border-bottom: 1px solid var(--border-color);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding-right: 3rem;
+}
+
+.orderModal__itemImage {
+  background-color: red;
+  height: 6rem;
+  width: 6rem;
+  object-fit: contain;
+}
+
+.orderModal__itemRemove {
+  right: 0;
+  top: calc(50% - 1.5rem);
+}
+
+.orderModal__submit {
+  background-color: var(--el);
+  color: #ffffff;
+}
+
+.orderModal__submit:hover {
+  background-color: #ffffff;
+  color: var(--el);
+}
+
+.orderModal__field {
+  margin-bottom: 2rem;
 }
 
 .logo {
