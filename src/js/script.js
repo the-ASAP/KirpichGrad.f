@@ -490,7 +490,8 @@ $().ready(function () {
         navContainer: '.events__controls',
         dots: true
     }, '.events__counters');
-    youTubeInit('.object__itemVideoBtn', 'object__itemVideo')
+    youTubeInit('.object__itemVideoBtn', 'object__itemVideo');
+    modalOpen('.catalog__previewBtn', '.preview')
     owls();
     owlItems('.offers__slider', {
         navContainer: '.offers__nav',

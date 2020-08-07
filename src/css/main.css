@@ -43,18 +43,21 @@ html {
 }
 
 .scrollbar::-webkit-scrollbar,
-body::-webkit-scrollbar {
+body::-webkit-scrollbar,
+.modal__box::-webkit-scrollbar {
   width: .5%;
   min-width: 8px;
 }
 
 .scrollbar::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track,
+.modal__box::-webkit-scrollbar-track {
   background: transparent;
 }
 
 .scrollbar::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb,
+.modal__box::-webkit-scrollbar-thumb {
   border-left: 1px solid #F2F2F2;
   background: var(--text);
   background: var(--gen);
@@ -633,17 +636,32 @@ textarea::placeholder {
 }
 
 .modal {
+  display: none;
   background-color: #E5E5E5;
-  z-index: 3;
+  z-index: 4;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 5%;
+  left: 5%;
+  width: 90%;
+  max-width: 90%;
+  height: 90%;
+  max-height: 90%;
 }
 
 .modal__box {
   padding: 2rem;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.preview {
+  top: calc(50% - 23rem);
+  height: 46rem;
 }
 
 .tabs-btn > button.active,
@@ -973,7 +991,7 @@ textarea::placeholder {
   left: 0;
   width: 100%;
   background-color: #E5E5E5;
-  z-index: 3;
+  z-index: 6;
   height: 100%;
   transform: translateX(-100%);
   transition: transform .8s;
@@ -2202,6 +2220,15 @@ textarea::placeholder {
   background-color: var(--text);
 }
 
+.catalog__galleryTop {
+  position: relative;
+}
+
+.catalog__galleryTop:hover .catalog__previewBtn {
+  opacity: .9;
+  visibility: visible;
+}
+
 .catalog__item {
   background-color: #fff;
   width: 31%;
@@ -2222,11 +2249,6 @@ textarea::placeholder {
 
 .catalog__item--short:nth-child(4n) {
   margin-right: 0;
-}
-
-.catalog__item:hover .catalog__previewBtn {
-  opacity: .9;
-  visibility: visible;
 }
 
 .catalog__itemBox {
@@ -2265,7 +2287,7 @@ textarea::placeholder {
 }
 
 .catalog__previewBtn {
-  z-index: 1;
+  z-index: 2;
   width: 11rem;
   max-width: 90%;
   height: 3.2rem;
@@ -2273,7 +2295,7 @@ textarea::placeholder {
   box-sizing: border-box;
   padding: 0 0.5rem;
   position: absolute;
-  top: calc(50% - 1.6rem);
+  top: calc(50% - .6rem);
   left: calc(50% - 5.5rem);
   background-color: var(--text);
   transition: all .3s;
