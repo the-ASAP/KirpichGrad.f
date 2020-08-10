@@ -529,35 +529,59 @@
 
 	</main>
 	<div class="orderModal modal">
-		<div class="modal__box">
-			<button type="button" class="modal__close"></button>
+		<div class="orderModal__success">
+			<div class="orderModal__successContent">
+				<h2 class="orderModal__title">Благодарим за заявку!</h2>
+				<h5 class="orderModal__subTitle">Наши специалисты уже начали обрабатывать вашу заявку!</h5>
+				<button  type="button" class="orderModal__return">вернуться назад</button>
+			</div>
+		</div>
+		<div class="orderModal__box modal__box">
+			
+			<button type="button" class="modal__close orderModal__close"></button>
 			<div class="orderModal__tabs">
 				<button type="button" class="orderModal__tabsItem">Продукция</button>
 				<button type="button" class="orderModal__tabsItem">Заявка</button>
+				<div class="orderModal__activeLine"></div>
 			</div>
 			<div class="orderModal__windows">
 				<form class="orderModal__windowsItem orderModal__list">
 					<h4 class="orderModal__title">Все верно?</h4>
 					<div class="orderModal__item">
 						<img src="" alt="" class="orderModal__itemImage">
-						<h4 class="orderModal__itemTitle">Ladoga</h4>
-						<div class="orderModal__itemPrice-one">25 ₽/шт</div>
-						<div class="orderModal__itemPrice">2 560 ₽/м²</div>
+						<div class="orderModal__itemContent">
+							<h4 class="orderModal__itemTitle">Ladoga</h4>
+							<div class="orderModal__itemPrice-one">25 ₽/шт</div>
+							<div class="orderModal__itemPrice">2 560 ₽/м²</div>
+						</div>
+
 						<button class="orderModal__itemRemove"></button>
 					</div>
 					<div class="orderModal__item">
 						<img src="" alt="" class="orderModal__itemImage">
-						<h4 class="orderModal__itemTitle">Ladoga</h4>
-						<div class="orderModal__itemPrice-one">25 ₽/шт</div>
-						<div class="orderModal__itemPrice">2 560 ₽/м²</div>
-						<button class="orderModal__itemRemove"></button>
+						<div class="orderModal__itemContent">
+							<h4 class="orderModal__itemTitle">Ladoga</h4>
+							<div class="orderModal__itemPrice-one">25 ₽/шт</div>
+							<div class="orderModal__itemPrice">2 560 ₽/м²</div>
+						</div>
 
+						<button class="orderModal__itemRemove"></button>
+					</div>
+					<div class="orderModal__item">
+						<img src="" alt="" class="orderModal__itemImage">
+						<div class="orderModal__itemContent">
+							<h4 class="orderModal__itemTitle">Ladoga</h4>
+							<div class="orderModal__itemPrice-one">25 ₽/шт</div>
+							<div class="orderModal__itemPrice">2 560 ₽/м²</div>
+						</div>
+
+						<button class="orderModal__itemRemove"></button>
 					</div>
 					<button class="orderModal__submit">Продолжить</button>
 				</form>
 				<form class="orderModal__windowsItem orderModal__request">
-					<h4 class="orderModal__title-request">Заполните заявку</h4>
-					<h4 class="orderModal__subTitle">и наш специалист свяжется с вами и оформит заказ</h4>
+					<h2 class="orderModal__title">Заполните заявку</h2>
+					<h5 class="orderModal__subTitle">и наш специалист свяжется с вами и оформит заказ</h5>
 					<div class="orderModal__field">
 						<input type="text" name="name" id="name" class="orderModal__input">
 						<label for="name" class="orderModal__label">Ваше имя</label>

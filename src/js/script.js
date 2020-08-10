@@ -317,6 +317,36 @@ function hashTabs(buttons, windows) {
     });
 }
 
+function activeLine(parent, line) {
+    var item = $(parent).children('button');
+console.log(item.filter('active'))
+    function activeChange() {
+        var offsetBody = $(parent).offset().left,
+            widthItem = item.filter('.active').width(),
+            offsetItem = item.filter('.active').offset().left - offsetBody;
+        if (offsetItem < 0) {
+            offsetItem = 0
+        } else {
+            $(line).css({
+                "width": widthItem,
+                "left": offsetItem
+            });
+
+        }
+    }
+    $(item).on('click', function () {
+        if (!$(this).hasClass('.active')) {
+            $(this).addClass('active');
+            activeChange();
+        }
+    });
+    setTimeout(function () {
+        activeChange();
+        $(line).css({
+            'display': 'block'
+        })
+    }, 200);
+}
 
 function tabs(buttons, windows) {
 
@@ -332,28 +362,30 @@ function tabs(buttons, windows) {
     }
 
 
-    $(button).eq(0).addClass(active)
+    button.eq(0).addClass(active)
     addActiveTab(1);
 
     function addActiveTab(i) {
 
-        $(window).filter('[data-index = ' + i + ']').addClass(active);
+        window.filter('[data-index = ' + i + ']').addClass(active);
 
         setTimeout(function () {
-            $('.active').addClass('visible')
+            window.filter(`.${active}`).addClass('visible')
             var maxh = window.filter('.active').height();
             $(windows).css({
                 "height": maxh
             });
         }, 100);
     }
+    button.on('click', function () {
+        console.log($(this))
 
-    $(button).on('click', function () {
         if (!$(this).hasClass(active)) {
             index = $(this).attr('data-index');
-            $(button).removeClass(active);
+            button.removeClass(active);
+            
             $(this).addClass(active);
-            $(window).removeClass('active visible');
+            window.removeClass('active visible');
             addActiveTab(index);
         }
     });
@@ -524,6 +556,7 @@ $().ready(function () {
     owlGallery('.catalog__itemGallery');
     tips('.tips__item');
     tabs('.orderModal__tabs', '.orderModal__windows');
+    activeLine('.orderModal__tabs','.orderModal__activeLine')
     showMenu('.catalog__other', '.catalog__otherBtn');
     toggleList('.catalog__select');
     activeItemOnClick('.catalog__listHeader');

@@ -1368,4 +1368,45 @@
             }
         }
     }
+    .orderModal{
+        width: 100%;
+        max-width: 100%;
+        left: 0;
+        height: 100vh;
+        max-height: 100vh;
+        top: 0;
+        &__close{
+            position: absolute;
+            height: 1.8rem;
+            width: 1.8rem;
+        }
+        &__success{
+            padding: 0 1.25rem;
+            box-sizing: border-box;
+
+        }
+        &__box{
+            position: relative;
+            overflow: auto;
+            padding: 3.125rem 15px;
+        }
+        &__tabs{
+            margin-bottom: 3rem;
+        }
+        &__item{
+            align-items: flex-start;
+            &Image{
+                  
+            }
+            &Content{
+                
+                padding: 0 1rem;
+                flex-wrap: wrap;
+                &> *{
+                    width: 100%;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
 }

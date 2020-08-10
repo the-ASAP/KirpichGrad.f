@@ -54,18 +54,18 @@ h2 {
 
 h3 {
     color: $gen;
-    font-size: 1.7778rem; // 32px
+    font-size: 2rem; // 32px
     font-weight: normal;
 }
 
 h4 {
     color: $gen;
-    font-size: 1.3333rem; //24px
+    font-size: 1.5rem; //24px
     font-weight: normal;
 }
 
 h5 {
-    font-size: 1rem; //18px
+    font-size: 1.125rem; //18px
     font-weight: normal;
 }
 
@@ -274,6 +274,17 @@ textarea {
         color: $text;
         border-bottom: 1px solid $border;
     }
+}
+.activeLine {
+    transition: all .2s;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    bottom: -1px;
+    left: 0;
+    display: none;
+    background: $el;
+
 }
 .checkbox {
     width: 100%;
@@ -737,34 +748,97 @@ textarea {
     }
 }
 .preview{
-    // display: block;
     top: calc(50% - 23rem);
     height: 46rem;
 }
 .orderModal{
+    display: none;
+    background-color: #ffffff; 
+    display: block;
+    height: auto;
+    width: 80%;
+    left: calc(50% - 40%);
+    &__success{
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        background-color: $bgc;
+        // display: flex;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        &Content{
+            width: 100%;
+        }
+    }
+    &__box{
+        overflow: hidden;
+        padding: 2.5rem 3.75rem 4rem;
+    }
+    &__close{
+        right: 1rem;
+        top: 1rem;
+        z-index: 2;
+    }
     &__tabs{
         display: flex;
         justify-content: space-between;
         margin-bottom: 2rem;
-        border-bottom: 1px solid $el;
+        position: relative;
+        border-bottom: 1px solid $border;
+        margin-bottom: 4.375rem;
         &Item{
-            width: 45%;
+            width: 50%;
+            font-size: 1.5rem;
+            color: $sub;
             text-align: center;
-            padding-bottom: 1rem;
+            font-weight: 400;
+            padding-bottom: 1.375rem;
+            
+            &.active{
+                color: $el;
+            }
         }
+    }
+    &__activeLine{
+        @extend .activeLine;
     }
     &__title{
         text-align: center;
+        width: 100%;
+        margin-bottom: 2.5rem;
     }
-    &__list{
-        margin-bottom: 3.75rem;
+    &__subTitle{    
+        // font-size: 1.125rem;
+        width: 19.375rem;
+        max-width: 100%;
+        color: $text;
+        margin: 0 auto; 
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    &__request{
+        width: 31.875rem;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    &__policity{
+        font-size: 0.75rem;
+        color: $text;
+        margin-top: 1.25rem;
     }
     &__windows{
+        transition: height .3s;
         &Item{
             display: none;
             visibility: hidden;
             opacity: 0;
-            transition: visibility opacity;
+            transition: visibility .3s, opacity .3s;
             &.visible{
                 visibility: visible;
                 opacity: 1;
@@ -782,24 +856,51 @@ textarea {
         justify-content: space-between;
         align-items: center;
         position: relative;
-        padding-right: 3rem;
-
+        border-bottom: 1px solid $border;
+        &:first-of-type{
+            border-top: 1px solid $border;
+        }
+        &Content{
+            padding-left: 4rem;
+            padding-right: 3rem;
+            box-sizing: border-box;
+            width: calc(100% - 6rem);
+            display: flex;
+        }
         &Image{
-            background-color: red;
             height: 6rem;
+            background-color: red;
             width: 6rem;
             object-fit: contain;
+        }
+        &Title{
+            width: 50%;
+        }
+        &Price{
+            width: 25%;
+            &-one{
+                width: 25%;
+            }
         }
         &Remove{
             @extend .close-btn;
             right: 0;
-            top: calc(50% - 1.5rem);
+            top: calc(50% - .5rem);
+            height: 1rem;
+            width: 1rem;
+            &::after,
+            &::before{
+                background-color: $text;
+            }
         }
     }
+    &__return,
     &__submit{
+        margin-top: 3.75rem;
         @extend .button;
         background-color: $el;
         color: #ffffff;
+        border-color: $el;
         &:hover{
             background-color: #ffffff;
             color: $el; 
@@ -807,7 +908,7 @@ textarea {
     }
     &__field{
         @extend %field;
-        margin-bottom: 2rem;
+        margin: 0 auto 2.625rem;
     }
 }
 .logo {
@@ -900,7 +1001,7 @@ textarea {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: #E5E5E5;
+    background-color: $bgc;
     z-index: 6;
     height: 100%;
     transform: translateX(-100%);
@@ -1060,6 +1161,7 @@ textarea {
         margin-left: 1.875rem;
         height: 1.125rem;
         &-compare{
+            position: relative;
             width: 14px;
             &:hover .icon-compare{
                 &,

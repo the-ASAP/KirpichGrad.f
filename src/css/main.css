@@ -29,7 +29,7 @@
   --text: #BDBDBD;
   --font: Helvetica-Neue;
   --subText: #797979;
-  --border-color: #E0E0E0;
+  --border-color: #D6D6D6;
   --bg-color: #F6F6F6;
 }
 
@@ -91,7 +91,7 @@ h2 {
 
 h3 {
   color: var(--gen);
-  font-size: 1.7778rem;
+  font-size: 2rem;
   font-weight: normal;
 }
 
@@ -99,12 +99,12 @@ h4,
 .category__itemTitle,
 .catalog__itemTitle {
   color: var(--gen);
-  font-size: 1.3333rem;
+  font-size: 1.5rem;
   font-weight: normal;
 }
 
 h5 {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: normal;
 }
 
@@ -121,6 +121,7 @@ h5 {
 .offers-set__counter,
 .owl-thumbs,
 .button,
+.orderModal__return,
 .orderModal__submit,
 .catalog__otherFilterApply,
 .recall__submit,
@@ -362,6 +363,18 @@ textarea::placeholder {
   font-size: 0.75rem;
   color: var(--text);
   border-bottom: 1px solid var(--border-color);
+}
+
+.activeLine,
+.orderModal__activeLine {
+  transition: all .2s;
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  bottom: -1px;
+  left: 0;
+  display: none;
+  background: var(--el);
 }
 
 .checkbox,
@@ -802,6 +815,7 @@ textarea::placeholder {
 }
 
 .button,
+.orderModal__return,
 .orderModal__submit,
 .catalog__otherFilterApply,
 .recall__submit,
@@ -822,6 +836,7 @@ textarea::placeholder {
 }
 
 .button:hover,
+.orderModal__return:hover,
 .orderModal__submit:hover,
 .catalog__otherFilterApply:hover,
 .recall__submit:hover,
@@ -829,6 +844,7 @@ textarea::placeholder {
 .solution__itemLink:hover,
 .notFound__btn:hover,
 .button:active,
+.orderModal__return:active,
 .orderModal__submit:active,
 .catalog__otherFilterApply:active,
 .recall__submit:active,
@@ -929,32 +945,102 @@ textarea::placeholder {
   height: 46rem;
 }
 
+.orderModal {
+  display: none;
+  background-color: #ffffff;
+  display: block;
+  height: auto;
+  width: 80%;
+  left: calc(50% - 40%);
+}
+
+.orderModal__success {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+}
+
+.orderModal__successContent {
+  width: 100%;
+}
+
+.orderModal__box {
+  overflow: hidden;
+  padding: 2.5rem 3.75rem 4rem;
+}
+
+.orderModal__close {
+  right: 1rem;
+  top: 1rem;
+  z-index: 2;
+}
+
 .orderModal__tabs {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
-  border-bottom: 1px solid var(--el);
+  position: relative;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 4.375rem;
 }
 
 .orderModal__tabsItem {
-  width: 45%;
+  width: 50%;
+  font-size: 1.5rem;
+  color: var(--subText);
   text-align: center;
-  padding-bottom: 1rem;
+  font-weight: 400;
+  padding-bottom: 1.375rem;
+}
+
+.orderModal__tabsItem.active {
+  color: var(--el);
 }
 
 .orderModal__title {
   text-align: center;
+  width: 100%;
+  margin-bottom: 2.5rem;
 }
 
-.orderModal__list {
-  margin-bottom: 3.75rem;
+.orderModal__subTitle {
+  width: 19.375rem;
+  max-width: 100%;
+  color: var(--text);
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.orderModal__request {
+  width: 31.875rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.orderModal__policity {
+  font-size: 0.75rem;
+  color: var(--text);
+  margin-top: 1.25rem;
+}
+
+.orderModal__windows {
+  transition: height .3s;
 }
 
 .orderModal__windowsItem {
   display: none;
   visibility: hidden;
   opacity: 0;
-  transition: visibility opacity;
+  transition: visibility .3s, opacity .3s;
 }
 
 .orderModal__windowsItem.visible {
@@ -974,33 +1060,68 @@ textarea::placeholder {
   justify-content: space-between;
   align-items: center;
   position: relative;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.orderModal__item:first-of-type {
+  border-top: 1px solid var(--border-color);
+}
+
+.orderModal__itemContent {
+  padding-left: 4rem;
   padding-right: 3rem;
+  box-sizing: border-box;
+  width: calc(100% - 6rem);
+  display: flex;
 }
 
 .orderModal__itemImage {
-  background-color: red;
   height: 6rem;
+  background-color: red;
   width: 6rem;
   object-fit: contain;
 }
 
+.orderModal__itemTitle {
+  width: 50%;
+}
+
+.orderModal__itemPrice {
+  width: 25%;
+}
+
+.orderModal__itemPrice-one {
+  width: 25%;
+}
+
 .orderModal__itemRemove {
   right: 0;
-  top: calc(50% - 1.5rem);
+  top: calc(50% - .5rem);
+  height: 1rem;
+  width: 1rem;
 }
 
+.orderModal__itemRemove::after,
+.orderModal__itemRemove::before {
+  background-color: var(--text);
+}
+
+.orderModal__return,
 .orderModal__submit {
+  margin-top: 3.75rem;
   background-color: var(--el);
   color: #ffffff;
+  border-color: var(--el);
 }
 
+.orderModal__return:hover,
 .orderModal__submit:hover {
   background-color: #ffffff;
   color: var(--el);
 }
 
 .orderModal__field {
-  margin-bottom: 2rem;
+  margin: 0 auto 2.625rem;
 }
 
 .logo {
@@ -1087,7 +1208,7 @@ textarea::placeholder {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #E5E5E5;
+  background-color: var(--bg-color);
   z-index: 6;
   height: 100%;
   transform: translateX(-100%);
@@ -1255,6 +1376,7 @@ textarea::placeholder {
 }
 
 .nav__btn-compare {
+  position: relative;
   width: 14px;
 }
 
@@ -3736,7 +3858,7 @@ textarea::placeholder {
   --text: #BDBDBD;
   --font: Helvetica-Neue;
   --subText: #797979;
-  --border-color: #E0E0E0;
+  --border-color: #D6D6D6;
   --bg-color: #F6F6F6;
 }
 
@@ -5014,6 +5136,50 @@ textarea::placeholder {
     width: 100%;
     margin-top: 2.5rem;
   }
+
+  .orderModal {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    height: 100vh;
+    max-height: 100vh;
+    top: 0;
+  }
+
+  .orderModal__close {
+    position: absolute;
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+
+  .orderModal__success {
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+  }
+
+  .orderModal__box {
+    position: relative;
+    overflow: auto;
+    padding: 3.125rem 15px;
+  }
+
+  .orderModal__tabs {
+    margin-bottom: 3rem;
+  }
+
+  .orderModal__item {
+    align-items: flex-start;
+  }
+
+  .orderModal__itemContent {
+    padding: 0 1rem;
+    flex-wrap: wrap;
+  }
+
+  .orderModal__itemContent > * {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
 }
 :root {
   --gen: #303030;
@@ -5021,6 +5187,6 @@ textarea::placeholder {
   --text: #BDBDBD;
   --font: Helvetica-Neue;
   --subText: #797979;
-  --border-color: #E0E0E0;
+  --border-color: #D6D6D6;
   --bg-color: #F6F6F6;
 }
