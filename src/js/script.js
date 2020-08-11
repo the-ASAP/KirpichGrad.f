@@ -577,15 +577,16 @@ const searchHistory = (form, row) => {
         sessionStorage.setItem(`history`, JSON.stringify(array));
     }
 
-    // Создание  значения в SessionStorage, если оно отсуствует
+    // Создание  значения в SessionStorage, если оно отсуствует или пустое
     // Получаем массив, если запись существует
-    null == sessionStorage.getItem('history')
-    if (sessionStorage.getItem('history') == null) {
-        history = []
+
+    if (sessionStorage.getItem('history') == null || JSON.parse(sessionStorage.getItem('history')).length == 0) {
+        history = [];
     } else {
         history = JSON.parse(sessionStorage.getItem('history'));
         // Рендерим кнопки из массива 
         render(history)
+        
     }
 
     $(form).on('submit', function () {
