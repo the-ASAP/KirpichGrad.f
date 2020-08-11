@@ -151,12 +151,14 @@ input,
 .close-btn::after,
 .modal__close::after,
 .orderModal__itemRemove::after,
+.mainMenu__searchItemRemove::after,
 .favorites__removeBtn::after,
 .compare__resetIcon::after,
 .compare__itemRemove::after,
 .close-btn::before,
 .modal__close::before,
 .orderModal__itemRemove::before,
+.mainMenu__searchItemRemove::before,
 .favorites__removeBtn::before,
 .compare__resetIcon::before,
 .compare__itemRemove::before {
@@ -513,6 +515,7 @@ textarea::placeholder {
 .close-btn,
 .modal__close,
 .orderModal__itemRemove,
+.mainMenu__searchItemRemove,
 .favorites__removeBtn,
 .compare__resetIcon,
 .compare__itemRemove {
@@ -526,12 +529,14 @@ textarea::placeholder {
 .close-btn::after,
 .modal__close::after,
 .orderModal__itemRemove::after,
+.mainMenu__searchItemRemove::after,
 .favorites__removeBtn::after,
 .compare__resetIcon::after,
 .compare__itemRemove::after,
 .close-btn::before,
 .modal__close::before,
 .orderModal__itemRemove::before,
+.mainMenu__searchItemRemove::before,
 .favorites__removeBtn::before,
 .compare__resetIcon::before,
 .compare__itemRemove::before {
@@ -547,6 +552,7 @@ textarea::placeholder {
 .close-btn::after,
 .modal__close::after,
 .orderModal__itemRemove::after,
+.mainMenu__searchItemRemove::after,
 .favorites__removeBtn::after,
 .compare__resetIcon::after,
 .compare__itemRemove::after {
@@ -556,6 +562,7 @@ textarea::placeholder {
 .close-btn::before,
 .modal__close::before,
 .orderModal__itemRemove::before,
+.mainMenu__searchItemRemove::before,
 .favorites__removeBtn::before,
 .compare__resetIcon::before,
 .compare__itemRemove::before {
@@ -565,12 +572,14 @@ textarea::placeholder {
 .close-btn:hover::after,
 .modal__close:hover::after,
 .orderModal__itemRemove:hover::after,
+.mainMenu__searchItemRemove:hover::after,
 .favorites__removeBtn:hover::after,
 .compare__resetIcon:hover::after,
 .compare__itemRemove:hover::after,
 .close-btn:hover::before,
 .modal__close:hover::before,
 .orderModal__itemRemove:hover::before,
+.mainMenu__searchItemRemove:hover::before,
 .favorites__removeBtn:hover::before,
 .compare__resetIcon:hover::before,
 .compare__itemRemove:hover::before {
@@ -580,6 +589,7 @@ textarea::placeholder {
 .close-btn:hover,
 .modal__close:hover,
 .orderModal__itemRemove:hover,
+.mainMenu__searchItemRemove:hover,
 .favorites__removeBtn:hover,
 .compare__resetIcon:hover,
 .compare__itemRemove:hover {
@@ -1232,6 +1242,14 @@ textarea::placeholder {
   animation-delay: .7s;
 }
 
+.mainMenu__wrap {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 100%;
+  margin-top: 3rem;
+}
+
 .mainMenu__box {
   flex-wrap: wrap;
   align-items: flex-start;
@@ -1243,7 +1261,6 @@ textarea::placeholder {
 .mainMenu__search {
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--gen);
-  margin-bottom: 3.4444rem;
   width: 100%;
   height: 3rem;
   position: relative;
@@ -1256,6 +1273,7 @@ textarea::placeholder {
   font-size: 1rem;
 }
 
+.mainMenu__searchInput:not([value=""]) ~ .mainMenu__searchLabel,
 .mainMenu__searchInput:focus ~ .mainMenu__searchLabel {
   opacity: 0;
 }
@@ -1275,9 +1293,67 @@ textarea::placeholder {
   margin-right: 2.1111rem;
 }
 
+.mainMenu__searchItem {
+  display: inline-flex;
+  margin-top: 1.875rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  padding: 0 .4rem 0 .8rem;
+  transition: background-color .3s;
+}
+
+.mainMenu__searchItem:hover {
+  background-color: var(--el);
+}
+
+.mainMenu__searchItem:hover .mainMenu__searchItemBtn {
+  color: #ffffff;
+}
+
+.mainMenu__searchItem:hover .mainMenu__searchItemRemove::after,
+.mainMenu__searchItem:hover .mainMenu__searchItemRemove::before {
+  background-color: var(--el);
+}
+
+.mainMenu__searchItemBtn {
+  white-space: nowrap;
+  padding: .5rem 0;
+}
+
+.mainMenu__searchItemRemove {
+  margin-left: 1rem;
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.mainMenu__searchItemRemove::after,
+.mainMenu__searchItemRemove::before {
+  left: calc(50% - .35rem);
+  background-color: var(--text);
+}
+
+.mainMenu__searchItemRemove:hover {
+  background-color: #fff;
+  opacity: .8;
+}
+
+.mainMenu__searchResult {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  z-index: 1;
+}
+
 .mainMenu__close {
   top: 3.375rem;
-  right: -1rem;
+  right: -.5rem;
   z-index: 1;
 }
 
@@ -1310,6 +1386,7 @@ textarea::placeholder {
 
 .mainMenu__list {
   width: 20%;
+  position: relative;
   box-sizing: border-box;
 }
 

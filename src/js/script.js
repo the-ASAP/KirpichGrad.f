@@ -87,24 +87,24 @@ function owls() {
             $('.showroom__sliderOption-size').text(item.attr('data-size'));
             $('.showroom__sliderOption-price').text(item.attr('data-price'))
         })
-        const cert = $('.cert__slider')
-        cert
+    const cert = $('.cert__slider')
+    cert
         .addClass('owl-carousel owl-theme')
         .owlCarousel({
-                nav: true,
-                navContainer: ('.cert__nav'),
-                navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
-                dots: false,
-                smartSpeed: 1000,
-                lazyLoad: true,
-                margin: 10,
-                items: 1
-            })
-            .on('change.owl.carousel initialize.owl.carousel', (e) => {
-                let item = $('.cert__slider').find('.owl-item.active').eq(0).find('img');
-                $('.cert__description').hide().fadeIn(500)
-                $('.cert__description').text(item.attr('data-content'));
-            })
+            nav: true,
+            navContainer: ('.cert__nav'),
+            navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
+            dots: false,
+            smartSpeed: 1000,
+            lazyLoad: true,
+            margin: 10,
+            items: 1
+        })
+        .on('change.owl.carousel initialize.owl.carousel', (e) => {
+            let item = $('.cert__slider').find('.owl-item.active').eq(0).find('img');
+            $('.cert__description').hide().fadeIn(500)
+            $('.cert__description').text(item.attr('data-content'));
+        })
 }
 
 const owlSlider = (selector, params) => {
@@ -129,15 +129,15 @@ const owlItems = (selector, params, ) => {
     if (params == undefined) params = ''
     const owl = $(selector);
     owl
-    .addClass('owl-carousel owl-theme')
-    .owlCarousel(Object.assign(params, {
-        dots: false,
-        nav: true,
-        navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
-        lazyLoad: true,
-        thumbs: false,
-        smartSpeed: 1000,
-    }));
+        .addClass('owl-carousel owl-theme')
+        .owlCarousel(Object.assign(params, {
+            dots: false,
+            nav: true,
+            navText: ['<svg class="sliderNavBtn" width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>', '<svg class="sliderNavBtn"  width="20" height="20" viewBox="0 0 20 20" fill="none"xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd"d="M17.5983 10.5776H0V9.23071H17.413L9.40289 0.95237L10.3244 0L20.0003 9.99988L10.3244 19.9998L9.40289 19.0474L17.5983 10.5776Z"fill="#4F4F4F" /></svg>'],
+            lazyLoad: true,
+            thumbs: false,
+            smartSpeed: 1000,
+        }));
 }
 
 const owlGallery = (selector, params) => {
@@ -319,7 +319,8 @@ function hashTabs(buttons, windows) {
 
 function activeLine(parent, line) {
     var item = $(parent).children('button');
-console.log(item.filter('active'))
+    console.log(item.filter('active'))
+
     function activeChange() {
         var offsetBody = $(parent).offset().left,
             widthItem = item.filter('.active').width(),
@@ -383,7 +384,7 @@ function tabs(buttons, windows) {
         if (!$(this).hasClass(active)) {
             index = $(this).attr('data-index');
             button.removeClass(active);
-            
+
             $(this).addClass(active);
             window.removeClass('active visible');
             addActiveTab(index);
@@ -397,6 +398,7 @@ function youTubeInit(button, frame) {
         $(this).after(`<iframe class="${frame}" src="${src}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`).remove();
     });
 }
+
 function tips(item) {
     var item = $(item),
         btn = item.find('button');
@@ -546,6 +548,91 @@ const inputSetValue = () => {
     });
 }
 
+const searchHistory = (form, row) => {
+    let history,
+        input = $(form).find('input[type="text"]');
+
+
+    // Функция для рендера кнопок 
+    const render = (el) => {
+        let name;
+        const scheme = (name) =>{
+            return `<span class="mainMenu__searchItem">
+                    <button type="button" class="mainMenu__searchItemBtn">${name}</button>
+                    <button type="button" class="mainMenu__searchItemRemove"></button>
+                </span>`
+        }
+        if (el.length > 1) {
+            $.each(el, (i) => {
+                name = history[i];
+                $(row).append(scheme(name))
+            });
+        } else {
+            $(row).prepend(scheme(el))
+        }
+    }
+
+    // Функция  для обновления sessionStorage 
+    const sessionUpdate = (array) => {
+        sessionStorage.setItem(`history`, JSON.stringify(array));
+    }
+
+    // Создание  значения в SessionStorage, если оно отсуствует
+    // Получаем массив, если запись существует
+    null == sessionStorage.getItem('history')
+    if (sessionStorage.getItem('history') == null) {
+        history = []
+    } else {
+        history = JSON.parse(sessionStorage.getItem('history'));
+        // Рендерим кнопки из массива 
+        render(history)
+    }
+
+    $(form).on('submit', function () {
+
+        let val = input.val();
+        history.unshift(val)
+
+        // Если длинна  массива  больше заданного, удаляем самую старую запись
+        // Сохраняем запись в хранилище если  value.length больше 3 
+        // Рендерим добавленную кнопку из массива 
+        if (val.length >= 3) {
+            if (history.length >= 3) {
+                history.pop();
+                $('.mainMenu__searchHistory').find('span').last().remove()
+            }
+            sessionUpdate(history);
+            render([val])
+        } 
+    })
+    // Клики на отрендеренные кнопки
+    $(row).on('click', function (e) {
+        let target = $(e.target).parent();
+        if ($(e.target).hasClass('mainMenu__searchItemRemove')) {
+
+            // удаляем кнопку при клике на X
+            target.animate({
+                'width': 0,
+                'opacity': 0
+            }, 200, function () {
+                target.remove()
+            });
+
+            // удаляем кнопку из массива
+            history.splice([target.index()], 1);
+        } else {
+            // прокидываем значение в инпут
+            input
+                .val($(e.target).text())
+                .attr('value', $(e.target).text())
+                .focus();
+        }
+
+        // Обновляем  хранилище
+        sessionUpdate(history)
+    });
+}
+searchHistory('.mainMenu__search', '.mainMenu__searchHistory')
 $().ready(function () {
     inputTypeNumberCheck();
     inputSetValue()
@@ -556,7 +643,7 @@ $().ready(function () {
     owlGallery('.catalog__itemGallery');
     tips('.tips__item');
     tabs('.orderModal__tabs', '.orderModal__windows');
-    activeLine('.orderModal__tabs','.orderModal__activeLine')
+    activeLine('.orderModal__tabs', '.orderModal__activeLine')
     showMenu('.catalog__other', '.catalog__otherBtn');
     toggleList('.catalog__select');
     activeItemOnClick('.catalog__listHeader');
@@ -610,7 +697,7 @@ $().ready(function () {
         // owlGallery('.object__itemSlider')
     }
     if ($('.contacts-page').length > '') {
-        yandexMap([51.51706504131899,46.015190864417974], 'Саратов, ул.Чернышевского 94 А');
+        yandexMap([51.51706504131899, 46.015190864417974], 'Саратов, ул.Чернышевского 94 А');
     }
     if ($('.category').length > '') {
         owlGallery('.category__itemGallery')
@@ -623,16 +710,19 @@ $().ready(function () {
         compareSlider('.compare__items');
     }
 
-    owlItems('.about__instSlider', { responsive: {
-        0: {
-            items: 1,
-            margin: 10,
+    owlItems('.about__instSlider', {
+        responsive: {
+            0: {
+                items: 1,
+                margin: 10,
+            },
+            768: {
+                items: 4,
+                margin: 40,
+            }
         },
-        768: {
-            items: 4,
-            margin: 40,
-        }
-    }, navContainer: '.about__instControls'});
+        navContainer: '.about__instControls'
+    });
     // owlItems('.cert__slider', { responsive: {
     //     0: {
     //         items: 1,

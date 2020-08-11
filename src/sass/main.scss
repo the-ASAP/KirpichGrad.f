@@ -1020,7 +1020,13 @@ textarea {
             animation-delay: .7s;
         }
     }
-    
+    &__wrap{
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        width: 100%;
+        margin-top: 3rem;
+    }
     &__box {
         flex-wrap: wrap;
         align-items: flex-start;
@@ -1032,7 +1038,7 @@ textarea {
     &__search {
         padding-bottom: 1rem;
         border-bottom: 1px solid $gen;
-        margin-bottom: 3.4444rem;
+        
         width: 100%;
         height: 3rem;
         position: relative;
@@ -1042,7 +1048,7 @@ textarea {
             height: 100%;
             display: block;
             font-size: 1rem;
-
+            &:not([value=""])~.mainMenu__searchLabel,
             &:focus~.mainMenu__searchLabel {
                 opacity: 0;
             }
@@ -1062,11 +1068,67 @@ textarea {
                 margin-right: 2.1111rem;
             }
         }
+
+        &Item{
+            display: inline-flex;
+            margin-top: 1.875rem;
+            margin-bottom: 1rem;
+            align-items: center;
+            padding: 0 .4rem 0 .8rem;
+            transition: background-color .3s;
+            &:hover{
+                background-color: $el;
+                .mainMenu__searchItemBtn{
+                    
+                    color: #ffffff
+                }
+                .mainMenu__searchItemRemove{
+                    &::after,
+                    &::before{
+                        background-color: $el;
+                    }
+                }
+            }
+            &Btn{
+                white-space: nowrap;
+                padding: .5rem 0;
+            }
+            &Remove{
+                margin-left: 1rem;
+                @extend .close-btn;
+                height: 1.2rem;
+                width: 1.2rem;
+                border-radius: 50%;
+                background-color: #ffffff; 
+                position: relative;
+                &::after,
+                &::before{
+                    left: calc(50% - .35rem);
+                    background-color: $text;
+                }
+                &:hover{
+                    &{
+                        background-color: #fff;
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+        &Result{
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;    
+            height: 100%;
+            background-color: $bgc;
+            z-index: 1;
+        }
     }
 
     &__close {
         top: 3.375rem;
-        right: -1rem;
+        right: -.5rem;
         z-index: 1;
     }
 
@@ -1098,9 +1160,9 @@ textarea {
 
     &__list {
         width: 20%;
+        position: relative;
         box-sizing: border-box;
 
-        // padding: 0 1rem;
         &Title {
             margin-bottom: 2.6667rem;
         }
