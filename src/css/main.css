@@ -4106,6 +4106,10 @@ textarea::placeholder {
     padding-bottom: 0;
   }
 
+  .mainMenu__searchItem {
+    margin-top: 0;
+  }
+
   .mainMenu__box {
     padding-top: 0.625rem;
     flex-wrap: wrap;
@@ -4226,16 +4230,12 @@ textarea::placeholder {
     padding: 8px 0;
     position: relative;
     height: auto;
-    width: calc(100% - 30px);
+    width: calc(100% - 30px) !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
     border: none;
-  }
-
-  .aside.open {
-    width: calc(100%  - 30px);
   }
 
   .aside__search {

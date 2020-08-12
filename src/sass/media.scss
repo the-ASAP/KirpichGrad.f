@@ -171,6 +171,9 @@
             margin-top: 1rem;
             margin-bottom: 1rem;
             padding-bottom: 0;
+            &Item{
+                margin-top: 0;
+            }
         }
 
         &__box {
@@ -299,15 +302,13 @@
         padding: 8px 0;
         position: relative;
         height: auto;
-        width: calc(100% - 30px);
+        width: calc(100% - 30px) !important;
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin: 0 auto;
         border: none;
-        &.open{
-            width: calc(100%  - 30px);
-        }
+
         &__search{
             display: block;
             height: 1.7rem;
