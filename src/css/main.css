@@ -958,7 +958,6 @@ textarea::placeholder {
 .orderModal {
   display: none;
   background-color: #ffffff;
-  display: block;
   height: auto;
   width: 80%;
   left: calc(50% - 40%);
@@ -1300,6 +1299,7 @@ textarea::placeholder {
   align-items: center;
   padding: 0 .4rem 0 .8rem;
   transition: background-color .3s;
+  cursor: pointer;
 }
 
 .mainMenu__searchItem:hover {
@@ -4234,8 +4234,14 @@ textarea::placeholder {
     border: none;
   }
 
-  .aside:hover {
-    width: calc(100% - 30px);
+  .aside.open {
+    width: calc(100%  - 30px);
+  }
+
+  .aside__search {
+    display: block;
+    height: 1.7rem;
+    width: 1.7rem;
   }
 
   .aside__toggle {
@@ -4243,6 +4249,12 @@ textarea::placeholder {
     width: 1.8rem;
     height: 1.2rem;
     box-sizing: border-box;
+  }
+
+  .aside__toggle:hover::after,
+  .aside__toggle:hover::before,
+  .aside__toggle:hover .aside__toggle-line {
+    background-color: var(--subText);
   }
 
   .aside__toggle-line {
@@ -4256,7 +4268,7 @@ textarea::placeholder {
     width: 100%;
     left: 0;
     top: 0;
-    height: 1px;
+    height: 2px;
   }
 
   .aside__toggle::before {

@@ -754,12 +754,10 @@ textarea {
 .orderModal{
     display: none;
     background-color: #ffffff; 
-    display: block;
     height: auto;
     width: 80%;
     left: calc(50% - 40%);
     &__success{
-        
         position: absolute;
         top: 0;
         left: 0;
@@ -1076,6 +1074,7 @@ textarea {
             align-items: center;
             padding: 0 .4rem 0 .8rem;
             transition: background-color .3s;
+            cursor: pointer;
             &:hover{
                 background-color: $el;
                 .mainMenu__searchItemBtn{

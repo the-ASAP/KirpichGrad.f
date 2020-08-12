@@ -305,17 +305,26 @@
         justify-content: space-between;
         margin: 0 auto;
         border: none;
-
-        &:hover {
-            width: calc(100% - 30px);
+        &.open{
+            width: calc(100%  - 30px);
         }
-
+        &__search{
+            display: block;
+            height: 1.7rem;
+            width: 1.7rem;
+        }
         &__toggle {
             height: auto;
             width: 1.8rem;
             height: 1.2rem;
             box-sizing: border-box;
-
+            &:hover{
+                &::after,
+                &::before,
+               .aside__toggle-line {
+                    background-color: $sub;
+                }
+            }
             &-line {
                 display: block;
             }
@@ -327,13 +336,14 @@
                 width: 100%;
                 left: 0;
                 top: 0;
-                height: 1px;
+                height: 2px;
             }
 
             &::before {
                 top: auto;
                 bottom: 0;
             }
+
         }
 
         &__search {

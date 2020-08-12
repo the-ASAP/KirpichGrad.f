@@ -13,6 +13,9 @@ function mainMenu(trigger, menu) {
     $(trigger).on('click', () => {
         stopScroll('body');
         $(menu).fadeIn().addClass('visible');
+        if(trigger == '.nav__btn-search'){
+            $('.mainMenu__searchInput').focus();
+        }
     });
     $('.mainMenu__close').on('click', () => {
         $(menu).removeClass('visible')
@@ -574,23 +577,24 @@ const searchHistory = (form, row) => {
 
     // Функция  для обновления sessionStorage 
     const sessionUpdate = (array) => {
-        sessionStorage.setItem(`history`, JSON.stringify(array));
+        localStorage.setItem(`history`, JSON.stringify(array));
     }
 
     // Создание  значения в SessionStorage, если оно отсуствует или пустое
     // Получаем массив, если запись существует
 
-    if (sessionStorage.getItem('history') == null || JSON.parse(sessionStorage.getItem('history')).length == 0) {
+    if (localStorage.getItem('history') == null || JSON.parse(localStorage.getItem('history')).length == 0) {
         history = [];
     } else {
-        history = JSON.parse(sessionStorage.getItem('history'));
+        history = JSON.parse(localStorage.getItem('history'));
         // Рендерим кнопки из массива 
         render(history)
         
     }
 
-    $(form).on('submit', function () {
-
+    $(form).on('submit', function (e) {
+        
+        e.preventDefault()
         let val = input.val();
         history.unshift(val)
 
@@ -598,14 +602,14 @@ const searchHistory = (form, row) => {
         // Сохраняем запись в хранилище если  value.length больше 3 
         // Рендерим добавленную кнопку из массива 
         if (val.length >= 3) {
-            if (history.length >= 3) {
+            if (history.length >= 8) {
                 history.pop();
                 $('.mainMenu__searchHistory').find('span').last().remove()
             }
             sessionUpdate(history);
             render([val])
         } 
-    })
+    });
     // Клики на отрендеренные кнопки
     $(row).on('click', function (e) {
         let target = $(e.target).parent();
@@ -624,8 +628,8 @@ const searchHistory = (form, row) => {
         } else {
             // прокидываем значение в инпут
             input
-                .val($(e.target).text())
-                .attr('value', $(e.target).text())
+                .val($(e.target).text().replace(/\s+/g, ''))
+                .attr('value', $(e.target).text().replace(/\s+/g, ''))
                 .focus();
         }
 
@@ -633,11 +637,13 @@ const searchHistory = (form, row) => {
         sessionUpdate(history)
     });
 }
-searchHistory('.mainMenu__search', '.mainMenu__searchHistory')
+
 $().ready(function () {
     inputTypeNumberCheck();
     inputSetValue()
     mainMenu('.aside__toggle', '.mainMenu');
+    mainMenu('.nav__btn-search', '.mainMenu');
+    searchHistory('.mainMenu__search', '.mainMenu__searchHistory')
     modalClose('.modal__close', '.modal');
     escClosing('.modal');
     owlGallery('.goods__gallerySlider');
