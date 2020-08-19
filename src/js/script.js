@@ -625,7 +625,7 @@ const searchHistory = (form, row) => {
 
             // удаляем кнопку из массива
             history.splice([target.index()], 1);
-        } else {
+        } else if ($(e.target).hasClass('mainMenu__searchItemBtn')){
             // прокидываем значение в инпут
             input
                 .val($(e.target).text().replace(/\s+/g, ''))
