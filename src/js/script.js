@@ -592,23 +592,24 @@ const searchHistory = (form, row) => {
         
     }
 
-    $(form).on('submit', function (e) {
-        
+    $(form).on('submit', function(e) {
+
         e.preventDefault()
         let val = input.val();
-        history.unshift(val)
-
-        // Если длинна  массива  больше заданного, удаляем самую старую запись
+        // Если длина  массива  больше заданного, удаляем самую старую запись
         // Сохраняем запись в хранилище если  value.length больше 3 
+        // и они не  повторяются
         // Рендерим добавленную кнопку из массива 
-        if (val.length >= 3) {
+
+        if (!localStorage.getItem('history').includes(val) && val.length >= 3) {
+            history.unshift(val);
             if (history.length >= 8) {
                 history.pop();
-                $('.mainMenu__searchHistory').find('span').last().remove()
+                $('.mainMenu__searchHistory').find('span').last().remove();
             }
             sessionUpdate(history);
             render([val])
-        } 
+        }
     });
     // Клики на отрендеренные кнопки
     $(row).on('click', function (e) {

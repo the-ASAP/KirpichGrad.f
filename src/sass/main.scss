@@ -2337,7 +2337,7 @@ textarea {
         position: relative;
         margin-right: 3.5%;
         margin-bottom: 4rem;
-
+        transition: transform .3s, opacity .3s;
         &:nth-child(3n + 1) {
             margin-right: 0;
         }
