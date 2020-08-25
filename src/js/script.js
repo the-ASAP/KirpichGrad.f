@@ -13,7 +13,7 @@ function mainMenu(trigger, menu) {
     $(trigger).on('click', () => {
         stopScroll('body');
         $(menu).fadeIn().addClass('visible');
-        if(trigger == '.nav__btn-search'){
+        if (trigger == '.nav__btn-search') {
             $('.mainMenu__searchInput').focus();
         }
     });
@@ -32,7 +32,9 @@ const filterModal = (trigger, modal) => {
             $(modal).fadeOut();
         } else {
             $(this).addClass('isOpen')
-            $(modal).fadeIn();
+            $(modal).fadeIn().css({
+                'display': 'flex'
+            });
         }
     });
     $('.catalog__otherFilterApply', '.catalog__otherFilterCancel').on('click', () => {
@@ -322,34 +324,34 @@ function hashTabs(buttons, windows) {
 
 function activeLine(parent, line) {
     var item = $(parent).children('button');
-    console.log(item.filter('active'))
+    if (item.length > 0) {
+        function activeChange() {
+            var offsetBody = $(parent).offset().left,
+                widthItem = item.filter('.active').width(),
+                offsetItem = item.filter('.active').offset().left - offsetBody;
+            if (offsetItem < 0) {
+                offsetItem = 0
+            } else {
+                $(line).css({
+                    "width": widthItem,
+                    "left": offsetItem
+                });
 
-    function activeChange() {
-        var offsetBody = $(parent).offset().left,
-            widthItem = item.filter('.active').width(),
-            offsetItem = item.filter('.active').offset().left - offsetBody;
-        if (offsetItem < 0) {
-            offsetItem = 0
-        } else {
-            $(line).css({
-                "width": widthItem,
-                "left": offsetItem
-            });
-
+            }
         }
-    }
-    $(item).on('click', function () {
-        if (!$(this).hasClass('.active')) {
-            $(this).addClass('active');
+        item.on('click', function () {
+            if (!$(this).hasClass('.active')) {
+                $(this).addClass('active');
+                activeChange();
+            }
+        });
+        setTimeout(function () {
             activeChange();
-        }
-    });
-    setTimeout(function () {
-        activeChange();
-        $(line).css({
-            'display': 'block'
-        })
-    }, 200);
+            $(line).css({
+                'display': 'block'
+            })
+        }, 200);
+    }
 }
 
 function tabs(buttons, windows) {
@@ -559,7 +561,7 @@ const searchHistory = (form, row) => {
     // Функция для рендера кнопок 
     const render = (el) => {
         let name;
-        const scheme = (name) =>{
+        const scheme = (name) => {
             return `<span class="mainMenu__searchItem">
                     <button type="button" class="mainMenu__searchItemBtn">${name}</button>
                     <button type="button" class="mainMenu__searchItemRemove"></button>
@@ -589,10 +591,10 @@ const searchHistory = (form, row) => {
         history = JSON.parse(localStorage.getItem('history'));
         // Рендерим кнопки из массива 
         render(history)
-        
+
     }
 
-    $(form).on('submit', function(e) {
+    $(form).on('submit', function (e) {
 
         e.preventDefault()
         let val = input.val();
@@ -626,14 +628,13 @@ const searchHistory = (form, row) => {
 
             // удаляем кнопку из массива
             history.splice([target.index()], 1);
-        } else if ($(e.target).hasClass('mainMenu__searchItemBtn')){
+        } else if ($(e.target).hasClass('mainMenu__searchItemBtn')) {
             // прокидываем значение в инпут
             input
-                .val($(e.target).text().replace(/\s+/g, ''))
-                .attr('value', $(e.target).text().replace(/\s+/g, ''))
+                .val($(e.target).text())
+                .attr('value', $(e.target))
                 .focus();
         }
-
         // Обновляем  хранилище
         sessionUpdate(history)
     });
@@ -712,7 +713,7 @@ $().ready(function () {
     }
     if ($('.catalog').length > '') {
         filterModal('.catalog__other', '.catalog__otherFilter');
-        filterModal('.catalog__filtersBtn', '.catalog__otherFilter');
+        filterModal('.catalog__filtersBtn', '.catalog__filter');
     }
     if ($('.compare').length > '') {
         compareSlider('.compare__items');

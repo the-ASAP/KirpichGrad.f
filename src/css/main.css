@@ -959,7 +959,7 @@ textarea::placeholder {
 .orderModal {
   display: none;
   background-color: #ffffff;
-  height: auto;
+  height: 90vh;
   width: 80%;
   left: calc(50% - 40%);
 }
@@ -983,7 +983,7 @@ textarea::placeholder {
 }
 
 .orderModal__box {
-  overflow: hidden;
+  box-sizing: border-box;
   padding: 2.5rem 3.75rem 4rem;
 }
 
@@ -2276,7 +2276,7 @@ textarea::placeholder {
   display: none;
   padding-bottom: 2rem;
   flex-wrap: wrap;
-  top: 0;
+  top: 50px;
   left: 0;
   z-index: 3;
   background-color: #ffffff;
@@ -4367,17 +4367,18 @@ textarea::placeholder {
     padding: 1rem 0;
   }
 
-  .catalog__filter {
-    display: none;
+  .catalog {
+    margin-top: 3.625rem;
   }
 
-  .catalog__filter--mobile {
+  .catalog__filter {
+    display: flex;
+    padding-top: 3rem;
+    display: flex;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
-    z-index: 2;
     background-color: #ffffff;
-    width: 100%;
-    display: flex;
   }
 
   .catalog__filterMobile {
@@ -4390,7 +4391,7 @@ textarea::placeholder {
 
   .catalog__select {
     width: 48%;
-    margin-bottom: 3.25rem;
+    margin-bottom: 2.25rem;
     border-right: 1px solid var(--text);
     z-index: initial;
   }
@@ -4442,7 +4443,8 @@ textarea::placeholder {
   }
 
   .catalog__otherFilter {
-    display: none;
+    position: static;
+    display: block;
     padding-bottom: 4rem;
     z-index: 2;
   }

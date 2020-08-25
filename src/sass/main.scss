@@ -755,7 +755,7 @@ textarea {
 .orderModal{
     display: none;
     background-color: #ffffff; 
-    height: auto;
+    height: 90vh;
     width: 80%;
     left: calc(50% - 40%);
     &__success{
@@ -766,7 +766,6 @@ textarea {
         width: 100%;
         height: 100%;
         background-color: $bgc;
-        // display: flex;
         display: none;
         justify-content: center;
         align-items: center;
@@ -776,7 +775,7 @@ textarea {
         }
     }
     &__box{
-        overflow: hidden;
+        box-sizing: border-box;
         padding: 2.5rem 3.75rem 4rem;
     }
     &__close{
@@ -2084,7 +2083,7 @@ textarea {
         display: none;
         padding-bottom: 2rem;
         flex-wrap: wrap;
-        top: 0;
+        top: 50px;
         left: 0;
         z-index: 3;
         background-color: #ffffff;

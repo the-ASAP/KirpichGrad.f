@@ -171,7 +171,8 @@
             margin-top: 1rem;
             margin-bottom: 1rem;
             padding-bottom: 0;
-            &Item{
+
+            &Item {
                 margin-top: 0;
             }
         }
@@ -309,23 +310,27 @@
         margin: 0 auto;
         border: none;
 
-        &__search{
+        &__search {
             display: block;
             height: 1.7rem;
             width: 1.7rem;
         }
+
         &__toggle {
             height: auto;
             width: 1.8rem;
             height: 1.2rem;
             box-sizing: border-box;
-            &:hover{
+
+            &:hover {
+
                 &::after,
                 &::before,
-               .aside__toggle-line {
+                .aside__toggle-line {
                     background-color: $sub;
                 }
             }
+
             &-line {
                 display: block;
             }
@@ -448,18 +453,15 @@
     }
 
     .catalog {
-
+        margin-top: 3.625rem;
         &__filter {
-            display: none;
-
-            &--mobile {
-                flex-wrap: wrap;
-                justify-content: space-between;
-                z-index: 2;
-                background-color: #ffffff;
-                width: 100%;
-                display: flex
-            }
+            display: flex;
+            padding-top: 3rem;
+            display: flex;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #ffffff;
 
             &Mobile {
                 z-index: 2;
@@ -472,7 +474,7 @@
 
         &__select {
             width: 48%;
-            margin-bottom: 3.25rem;
+            margin-bottom: 2.25rem;
             border-right: 1px solid $text;
             z-index: initial;
 
@@ -533,8 +535,8 @@
         }
 
         &__otherFilter {
-
-            display: none;
+            position: static;
+            display: block;
             padding-bottom: 4rem;
             z-index: 2;
 
@@ -1379,40 +1381,47 @@
             }
         }
     }
-    .orderModal{
+
+    .orderModal {
         width: 100%;
         max-width: 100%;
         left: 0;
         height: 100vh;
         max-height: 100vh;
         top: 0;
-        &__close{
+
+        &__close {
             position: absolute;
             height: 1.8rem;
             width: 1.8rem;
         }
-        &__success{
+
+        &__success {
             padding: 0 1.25rem;
             box-sizing: border-box;
         }
-        &__box{
+
+        &__box {
             position: relative;
             overflow: auto;
             padding: 3.125rem 15px;
         }
-        &__tabs{
+
+        &__tabs {
             margin-bottom: 3rem;
         }
-        &__item{
+
+        &__item {
             align-items: flex-start;
-            &Image{
-                  
-            }
-            &Content{
-                
+
+            &Image {}
+
+            &Content {
+
                 padding: 0 1rem;
                 flex-wrap: wrap;
-                &> *{
+
+                &>* {
                     width: 100%;
                     margin-bottom: 1rem;
                 }
